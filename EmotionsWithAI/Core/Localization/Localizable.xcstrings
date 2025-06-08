@@ -57,6 +57,9 @@
         }
       }
     },
+    "Conversation Start Date " : {
+
+    },
     "Dark Mode" : {
       "localizations" : {
         "tr" : {
@@ -76,6 +79,9 @@
           }
         }
       }
+    },
+    "Detail" : {
+
     },
     "Disgust" : {
       "extractionState" : "manual",
@@ -176,6 +182,12 @@
         }
       }
     },
+    "Last Feeling For You" : {
+
+    },
+    "Message Count " : {
+
+    },
     "Neutral" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -234,6 +246,9 @@
         }
       }
     },
+    "Sentiment" : {
+
+    },
     "Sentiment label" : {
       "localizations" : {
         "tr" : {
@@ -243,6 +258,9 @@
           }
         }
       }
+    },
+    "Sentiment Label" : {
+
     },
     "Settings" : {
       "localizations" : {
@@ -259,6 +277,9 @@
           }
         }
       }
+    },
+    "Show in Calendar" : {
+
     },
     "Start Analyze" : {
       "localizations" : {

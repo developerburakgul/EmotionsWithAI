@@ -8,8 +8,7 @@ import SwiftUI
 
 final class HomeViewModel: ObservableObject {
     @Published var showFileImporter: Bool = false
-    
-    init() {
+    init(container: DependencyContainer) {
         
     }
     var localizedMostEmotion: String {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AnalysisView: View {
-    @StateObject var viewModel: AnalysisViewViewModel = .init()
+    @StateObject var viewModel: AnalysisViewModel
     
     var body: some View {
         NavigationStack {
@@ -83,6 +83,6 @@ struct AnalysisView: View {
     }
 }
 
-#Preview {
-    AnalysisView()
-}
+//#Preview {
+//    AnalysisView()
+//}

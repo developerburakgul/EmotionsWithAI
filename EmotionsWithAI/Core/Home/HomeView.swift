@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 
 struct HomeView: View {
-    @StateObject var viewModel: HomeViewModel = HomeViewModel()
+    @StateObject var viewModel: HomeViewModel
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottomTrailing) {

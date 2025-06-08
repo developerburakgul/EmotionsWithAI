@@ -1,5 +1,5 @@
 //
-//  AnalysisViewViewModel.swift
+//  AnalysisViewModel.swift
 //  EmotionsWithAI
 //
 //  Created by Burak Gül on 7.06.2025.
@@ -7,10 +7,14 @@
 
 import Foundation
 
-final class AnalysisViewViewModel: ObservableObject {
+final class AnalysisViewModel: ObservableObject {
     @Published var text: String = ""
     @Published var maxInputSizeInKBString: String = "\(5) KB"
     @Published var textSizeInKBString: String = "\(0) KB"
+    
+    init(container: DependencyContainer) {
+        
+    }
     
     private var maxInputSizeInKB: Int = 0 {
         didSet {

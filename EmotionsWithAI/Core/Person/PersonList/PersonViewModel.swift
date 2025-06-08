@@ -13,6 +13,10 @@ final class PersonViewModel: ObservableObject {
     @Published var shownPersons: [Person] = Person.getMockData()
     @Published var selectedPerson: Person? = nil
     
+    init(container: DependencyContainer) {
+        
+    }
+    
     func userDidSearch(_ searchQuery: String) {
         guard !searchQuery.isEmpty else {
             resetSearch()

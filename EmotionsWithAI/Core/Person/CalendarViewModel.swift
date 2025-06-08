@@ -13,7 +13,7 @@ final class CalendarViewModel: ObservableObject {
     @Published var startDate: Date
     
     
-    init() {
+    init(container: DependencyContainer) {
         self.startDate = DateComponents(year: 2025, month: 1, day: 1).date ?? Date()
     }
     

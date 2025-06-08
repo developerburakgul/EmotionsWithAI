@@ -13,7 +13,7 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @StateObject var viewModel: SettingsViewModel = .init()
+    @StateObject var viewModel: SettingsViewModel
     @State var selectedLanguage: String = "en"
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -105,6 +105,6 @@ struct SettingsView: View {
 
 }
 
-#Preview {
-    SettingsView()
-}
+//#Preview {
+//    SettingsView()
+//}

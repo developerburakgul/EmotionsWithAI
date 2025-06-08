@@ -11,7 +11,7 @@ import SwiftUI
 
 import ObiletCalendar
 struct CalendarView: View {
-    @StateObject var viewModel: CalendarViewModel = .init()
+    @StateObject var viewModel: CalendarViewModel
     var body: some View {
         VStack {
             Spacer()
@@ -76,11 +76,13 @@ struct CalendarView: View {
         let image = Image(sentiment.getImageNameRemoveBacgkround())
         
         return VStack(spacing: 4) {
-            content()
             image
                 .resizable()
                 .frame(width: 32, height: 32)
                 .clipShape(Circle())
+            
+            content()
+           
         }
         .padding(4)
         .background(Color.gray.opacity(0.2))
@@ -91,6 +93,6 @@ struct CalendarView: View {
     }
 }
 
-#Preview {
-    CalendarView()
-}
+//#Preview {
+//    CalendarView()
+//}

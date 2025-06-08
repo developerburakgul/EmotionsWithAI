@@ -10,8 +10,9 @@ import SwiftUI
 
 
 struct PersonView: View {
-    @StateObject var viewModel: PersonViewModel = .init()
+    @StateObject var viewModel: PersonViewModel
     @State var searchQuery: String = ""
+    @EnvironmentObject var container: DependencyContainer
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -20,8 +21,9 @@ struct PersonView: View {
                     .navigationTitle("Person")
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationDestination(item: $viewModel.selectedPerson) { person in
-                        Text(viewModel.selectedPerson?.name ?? "Burak")
-                            .toolbarVisibility(.hidden, for: .tabBar)
+//                        Text(viewModel.selectedPerson?.name ?? "Burak")
+//                            .toolbarVisibility(.hidden, for: .tabBar)
+                        PersonDetailView(viewModel: PersonDetailViewModel(container: container))
                     }
             }
             .searchable(
@@ -62,10 +64,10 @@ struct PersonView: View {
 
 
 
-#Preview {
-    PersonView()
-}
-
-#Preview {
-    TabBarView()
-}
+//#Preview {
+//    PersonView()
+//}
+//
+//#Preview {
+//    TabBarView()
+//}

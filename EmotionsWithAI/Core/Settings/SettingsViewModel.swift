@@ -10,4 +10,8 @@ final class SettingsViewModel: ObservableObject {
     @Published var selectedLanguage: Language = .turkish
     @Published var allLanguages: [Language] = Language.allCases
     
+    init(container: DependencyContainer) {
+        
+    }
+    
 }

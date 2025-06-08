@@ -10,6 +10,9 @@ import Foundation
 final class PersonDetailViewModel: ObservableObject {
     @Published var personDetail: PersonDetail = PersonDetail.mock()
     
+    init(container: DependencyContainer) {
+        
+    }
     
     var startConversationDateString: String {
         let dateFormatter = DateFormatter()

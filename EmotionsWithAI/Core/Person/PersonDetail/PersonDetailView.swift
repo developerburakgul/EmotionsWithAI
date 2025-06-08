@@ -11,14 +11,20 @@ import Charts
 
 
 struct PersonDetailView: View {
-    @StateObject var viewModel: PersonDetailViewModel = .init()
+    @EnvironmentObject var container: DependencyContainer
+    @StateObject var viewModel: PersonDetailViewModel
     @State var selectedCount: Double?
     @State var selectedSector: String?
+    @State var selectedCalendarView: Bool = false
     var body: some View {
         NavigationStack {
             mainContent
                 .navigationTitle(viewModel.personDetail.name)
                 .navigationBarTitleDisplayMode(.inline)
+                .navigationDestination(isPresented: $selectedCalendarView) {
+                    CalendarView(viewModel: CalendarViewModel(container: container))
+                }
+            
         }
     }
     
@@ -108,16 +114,15 @@ struct PersonDetailView: View {
     }
     
     private var showInCalendar: some View {
-        ExpandableCell(isExpandable: false) {
-            HStack {
-                Text("Show in Calendar")
-                    .foregroundStyle(UIColor.label.toColor)
-                Spacer()
-                Image(systemName: "calendar")
-                    .foregroundStyle(UIColor.systemRed.toColor)
-            }
-        } content: {
-            
+        HStack {
+            Text("Show in Calendar")
+                .foregroundStyle(UIColor.label.toColor)
+            Spacer()
+            Image(systemName: "calendar")
+                .foregroundStyle(UIColor.systemRed.toColor)
+        }
+        .onTapGesture {
+            selectedCalendarView = true
         }
 
     }
@@ -171,6 +176,6 @@ struct PersonDetailView: View {
     }
 }
 
-#Preview {
-    PersonDetailView()
-}
+//#Preview {
+//    PersonDetailView()
+//}
