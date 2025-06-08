@@ -1,0 +1,126 @@
+//
+//  Sentiment.swift
+//  EmotionsWithAI
+//
+//  Created by Burak Gül on 6.06.2025.
+//
+
+import Foundation
+import SwiftUICore
+
+struct Sentiment: Identifiable, Codable, Equatable, Hashable{
+    var id: UUID = UUID()
+    
+    let label: SentimentLabel
+    let score: Double
+}
+
+
+
+
+enum SentimentLabel:Codable, CaseIterable, Equatable {
+    case anger
+    case disgust
+    case fear
+    case joy
+    case neutral
+    case sadness
+    case suprise
+    
+    var getStringValue: String {
+        switch self {
+        case .anger:
+            "Anger"
+        case .disgust:
+            "Disgust"
+        case .fear:
+            "Fear"
+        case .joy:
+            "Joy"
+        case .neutral:
+            "Neutral"
+        case .sadness:
+            "Sadness"
+        case .suprise:
+            "Suprise"
+        }
+    }
+    
+    var color: Color {
+        switch self {
+        case .anger:
+                .red
+        case .disgust:
+                .green
+        case .fear:
+                .purple
+        case .joy:
+                .yellow
+        case .neutral:
+                .gray
+        case .sadness:
+                .blue
+        case .suprise:
+                .pink
+        }
+    }
+    
+}
+
+
+extension SentimentLabel {
+    static func getRandom() -> SentimentLabel {
+        allCases.randomElement() ?? .neutral
+    }
+}
+
+extension Sentiment {
+    static func getRandom() -> Sentiment {
+
+        let item = SentimentLabel.allCases.randomElement()
+        return .init(
+            label: item ?? .joy,
+            score: Double.random(in: 0...1)
+        )
+    }
+    
+    static func mock(_ count: Int = 10) -> [Sentiment] {
+        return (0..<count).map { _ in
+            Sentiment.getRandom()
+        }
+    }
+    
+    static func simpleSetSentiment() -> [Sentiment] {
+        var returnArray: [Sentiment] = []
+        
+        for sentimentLabel in SentimentLabel.allCases {
+            returnArray.append(
+                Sentiment(
+                    label: sentimentLabel,
+                    score: Double.random(in: 0...1)
+                )
+            )
+        }
+        return returnArray
+    }
+    
+    func getImageName() -> String {
+        switch self.label {
+        case .anger:
+            "Anger"
+        case .disgust:
+            "Disgust"
+        case .fear:
+            "Fear"
+        case .joy:
+            "Joy"
+        case .neutral:
+            "squareImage"
+        case .sadness:
+            "Sadness"
+        case .suprise:
+            "squareImage"
+        }
+    }
+}
+
