@@ -122,5 +122,24 @@ extension Sentiment {
             "squareImage"
         }
     }
+    
+    func getImageNameRemoveBacgkround() -> String {
+        switch self.label {
+        case .anger:
+            "AngerRemovedBackground"
+        case .disgust:
+            "DisgustRemovedBackground"
+        case .fear:
+            "FearRemovedBackground"
+        case .joy:
+            "JoyRemovedBackground"
+        case .neutral:
+            "squareImage"
+        case .sadness:
+            "SadnessRemovedBackground"
+        case .suprise:
+            "squareImage"
+        }
+    }
 }
 

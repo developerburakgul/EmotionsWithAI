@@ -1,13 +1,13 @@
 {
-  "originHash" : "6a8b0d6fbd5851192ea2adbddfa9e298301552d88bb0223310b814b55585a9bb",
+  "originHash" : "fea5a05d7ab1b9b4e5232a7f59eeac6c69c0db4ea14ba2644833f9608070dd02",
   "pins" : [
     {
-      "identity" : "keychainaccess",
+      "identity" : "obcalendar",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/kishikawakatsumi/KeychainAccess.git",
+      "location" : "https://github.com/oBilet/OBCalendar",
       "state" : {
-        "revision" : "8d33ffd6f74b3bcfc99af759d4204c6395a3f918",
-        "version" : "3.2.1"
+        "revision" : "851654293da2675a922ce3e2f4fd316e53fcc6d2",
+        "version" : "0.2.2"
       }
     }
   ],

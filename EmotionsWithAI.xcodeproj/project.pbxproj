@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		231E767A2DECB84400B3CAEA /* KeychainManager in Frameworks */ = {isa = PBXBuildFile; productRef = 231E76792DECB84400B3CAEA /* KeychainManager */; };
-		231E767E2DECB8DF00B3CAEA /* KeychainManager in Frameworks */ = {isa = PBXBuildFile; productRef = 231E767D2DECB8DF00B3CAEA /* KeychainManager */; };
-		231E76822DECB93B00B3CAEA /* KeychainManager in Frameworks */ = {isa = PBXBuildFile; productRef = 231E76812DECB93B00B3CAEA /* KeychainManager */; };
-		231E76912DECBA9300B3CAEA /* KeychainManager in Frameworks */ = {isa = PBXBuildFile; productRef = 231E76902DECBA9300B3CAEA /* KeychainManager */; };
-		231E76942DECC97200B3CAEA /* KeychainManager in Frameworks */ = {isa = PBXBuildFile; productRef = 231E76932DECC97200B3CAEA /* KeychainManager */; };
+		232F693A2DF5C7DB00E81CE3 /* ObiletCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 232F69392DF5C7DB00E81CE3 /* ObiletCalendar */; };
+		232F693C2DF5C7DB00E81CE3 /* ObiletCollectionView in Frameworks */ = {isa = PBXBuildFile; productRef = 232F693B2DF5C7DB00E81CE3 /* ObiletCollectionView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,11 +28,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				231E767E2DECB8DF00B3CAEA /* KeychainManager in Frameworks */,
-				231E76942DECC97200B3CAEA /* KeychainManager in Frameworks */,
-				231E76822DECB93B00B3CAEA /* KeychainManager in Frameworks */,
-				231E76912DECBA9300B3CAEA /* KeychainManager in Frameworks */,
-				231E767A2DECB84400B3CAEA /* KeychainManager in Frameworks */,
+				232F693C2DF5C7DB00E81CE3 /* ObiletCollectionView in Frameworks */,
+				232F693A2DF5C7DB00E81CE3 /* ObiletCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,10 +73,8 @@
 			name = EmotionsWithAI;
 			packageProductDependencies = (
 				231E76792DECB84400B3CAEA /* KeychainManager */,
-				231E767D2DECB8DF00B3CAEA /* KeychainManager */,
-				231E76812DECB93B00B3CAEA /* KeychainManager */,
-				231E76902DECBA9300B3CAEA /* KeychainManager */,
-				231E76932DECC97200B3CAEA /* KeychainManager */,
+				232F69392DF5C7DB00E81CE3 /* ObiletCalendar */,
+				232F693B2DF5C7DB00E81CE3 /* ObiletCollectionView */,
 			);
 			productName = EmotionsWithAI;
 			productReference = 23102B722DEC77010087076E /* EmotionsWithAI.app */;
@@ -114,7 +106,7 @@
 			mainGroup = 23102B692DEC77000087076E;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				231E76922DECC97200B3CAEA /* XCLocalSwiftPackageReference "../BurakPackages/KeychainManager" */,
+				232F69382DF5C7DB00E81CE3 /* XCRemoteSwiftPackageReference "OBCalendar" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 23102B732DEC77010087076E /* Products */;
@@ -349,33 +341,31 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		231E76922DECC97200B3CAEA /* XCLocalSwiftPackageReference "../BurakPackages/KeychainManager" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../BurakPackages/KeychainManager;
+/* Begin XCRemoteSwiftPackageReference section */
+		232F69382DF5C7DB00E81CE3 /* XCRemoteSwiftPackageReference "OBCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/oBilet/OBCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.2;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		231E76792DECB84400B3CAEA /* KeychainManager */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = KeychainManager;
 		};
-		231E767D2DECB8DF00B3CAEA /* KeychainManager */ = {
+		232F69392DF5C7DB00E81CE3 /* ObiletCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = KeychainManager;
+			package = 232F69382DF5C7DB00E81CE3 /* XCRemoteSwiftPackageReference "OBCalendar" */;
+			productName = ObiletCalendar;
 		};
-		231E76812DECB93B00B3CAEA /* KeychainManager */ = {
+		232F693B2DF5C7DB00E81CE3 /* ObiletCollectionView */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = KeychainManager;
-		};
-		231E76902DECBA9300B3CAEA /* KeychainManager */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = KeychainManager;
-		};
-		231E76932DECC97200B3CAEA /* KeychainManager */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = KeychainManager;
+			package = 232F69382DF5C7DB00E81CE3 /* XCRemoteSwiftPackageReference "OBCalendar" */;
+			productName = ObiletCollectionView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
