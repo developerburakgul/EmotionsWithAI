@@ -1,19 +1,15 @@
 //
-//  ExpandableCell.swift
+//  NonExpandableCell.swift
 //  EmotionsWithAI
 //
-//  Created by Burak Gül on 8.06.2025.
+//  Created by Burak Gül on 11.06.2025.
 //
-
 
 import SwiftUI
 
-
-struct ExpandableCell<Header: View, Content: View>: View {
+struct NonExpandableCell<Header: View, Content: View>: View {
     @ViewBuilder let header: () -> Header
     @ViewBuilder let content: () -> Content
-    @State private var isExpanded = false
-
     let backgroundColor: Color
 
     init(
@@ -22,38 +18,28 @@ struct ExpandableCell<Header: View, Content: View>: View {
         @ViewBuilder content: @escaping () -> Content
     ) {
         self.header = header
-        self.content = content
         self.backgroundColor = backgroundColor
+        self.content = content
     }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Button {
-                isExpanded.toggle()
-            } label: {
-                HStack {
-                    header()
-                    Spacer()
-                    Image(systemName: isExpanded ? "chevron.down" : "chevron.right")
-                        .foregroundColor(.primary)
-                }
+            HStack {
+                header()
+                Spacer()
             }
-
-            if isExpanded {
-                content()
-            }
+            content()
         }
         .padding()
         .background(backgroundColor)
         .cornerRadius(8)
-        .animation(.default, value: isExpanded)
     }
 }
 
 #Preview {
-    ExpandableCell(
+    NonExpandableCell(
         backgroundColor: Color.gray.opacity(0.2)) {
-            Text("Expandable Title")
+            Text("Always Visible Title")
                 .font(.headline)
         } content: {
             VStack(alignment: .leading) {

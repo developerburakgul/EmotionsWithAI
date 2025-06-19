@@ -10,6 +10,7 @@ import Charts
 
 struct HomeView: View {
     @StateObject var viewModel: HomeViewModel
+    @State var showFileImporter: Bool = false
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottomTrailing) {
@@ -18,11 +19,14 @@ struct HomeView: View {
                     .navigationBarTitleDisplayMode(.large)
                 addButton
                     .fileImporter(
-                        isPresented: $viewModel.showFileImporter,
+                        isPresented: $showFileImporter,
                         allowedContentTypes: [.zip]) { result in
                             // todo
                         }
             }
+        }
+        .task {
+            await viewModel.loadData()
         }
         
         
@@ -38,9 +42,10 @@ struct HomeView: View {
     }
     
     private var chart: some View {
-        ChartWithTime()
+        ChartWithTime(chartDatas: $viewModel.chartDatas)
             .frame(height: 250)
             .padding()
+        
     }
     
     private var text: some View {
@@ -50,32 +55,12 @@ struct HomeView: View {
     }
     
     private var cards: some View {
-        HStack(spacing: 16) {
-            VStack(spacing: 16) {
-                CardView(title: "Home", description: "Analysis")
-                    .frame(width: 110, height: 110)
-                CardView(title: "Home", description: "Analysis")
-                    .frame(width: 110, height: 110)
-            }
-            .padding()
-            
-            VStack(spacing: 16) {
-                CardView(title: "Home", description: "Analysis")
-                    .frame(width: 110, height: 110)
-                CardView(title: "Home", description: "Analysis")
-                    .frame(width: 110, height: 110)
-            }
-            
-        }
-        .padding()
-        //        .background(Color.yellow)
-        //        .frame(maxWidth: .greatestFiniteMagnitude)
-        
+        Text("Burak")
     }
     
     private var addButton: some View {
         Button(action: {
-            viewModel.clickAddButton()
+            clickAddButton()
         }) {
             Image(systemName: "plus")
                 .font(.system(size: 28, weight: .bold))
@@ -95,8 +80,13 @@ struct HomeView: View {
         .padding(.bottom, 16)
         
     }
+    
+    func clickAddButton() {
+        showFileImporter = true
+    }
 }
 
 #Preview {
     TabBarView()
+        .previewEnvironmentObject()
 }

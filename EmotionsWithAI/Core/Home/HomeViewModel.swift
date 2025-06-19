@@ -6,16 +6,29 @@
 //
 import SwiftUI
 
+
+
+@MainActor
 final class HomeViewModel: ObservableObject {
-    @Published var showFileImporter: Bool = false
+    @Published var chartDatas: [ChartData] = []
+    private var selfUser: SelfUser?
+    private let selfEmotionManager: SelfEmotionManager
+    private let analyzeManager: AnalyzeManager
+    
     init(container: DependencyContainer) {
         
-    }
-    var localizedMostEmotion: String {
-        String(localized: LocalizedStringResource(stringLiteral: SentimentLabel.anger.getStringValue))
+        //MARK: - TODO REGİSTER
+        self.analyzeManager = container.resolve(AnalyzeManager.self)!
+        self.selfEmotionManager = container.resolve(SelfEmotionManager.self)!
     }
     
-    func clickAddButton() {
-        showFileImporter = true
+    var localizedMostEmotion: String {
+        String(localized: LocalizedStringResource(stringLiteral: selfUser?.mostEmotionLabel.getStringValue ?? ""))
     }
+    
+    func loadData() async{
+        self.selfUser =  selfEmotionManager.fetchSelfUser()
+        self.chartDatas = selfUser?.chartDatas ?? []
+    }
+ 
 }

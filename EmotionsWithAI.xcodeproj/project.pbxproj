@@ -72,7 +72,6 @@
 			);
 			name = EmotionsWithAI;
 			packageProductDependencies = (
-				231E76792DECB84400B3CAEA /* KeychainManager */,
 				232F69392DF5C7DB00E81CE3 /* ObiletCalendar */,
 				232F693B2DF5C7DB00E81CE3 /* ObiletCollectionView */,
 			);
@@ -353,10 +352,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		231E76792DECB84400B3CAEA /* KeychainManager */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = KeychainManager;
-		};
 		232F69392DF5C7DB00E81CE3 /* ObiletCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 232F69382DF5C7DB00E81CE3 /* XCRemoteSwiftPackageReference "OBCalendar" */;

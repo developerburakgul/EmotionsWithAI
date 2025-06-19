@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-extension View {
-    func previewEnvironmentObject() -> some View {
-        self
-            .environmentObject(AppState())
-    }
-}
+//extension View {
+//    func previewEnvironmentObject() -> some View {
+//        self
+//            .environmentObject(AppState())
+//    }
+//}

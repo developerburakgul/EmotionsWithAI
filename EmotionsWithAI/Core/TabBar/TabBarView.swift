@@ -43,4 +43,5 @@ struct TabBarView: View {
 
 #Preview {
     TabBarView()
+        .previewEnvironmentObject()
 }

@@ -42,6 +42,9 @@ struct Dependencies {
     
     init(container: DependencyContainer) {
         self.container = container
+        let localPersonStorageService = LocalPersonStorageService()
+        container.register(LocalPersonStorageService.self, service: localPersonStorageService)
+        container.register(PersonManager.self, service: PersonManager(localPersonStorage: localPersonStorageService))
     }
     
 }

@@ -20,4 +20,29 @@ extension Date {
         let components = calendar.dateComponents([.day], from: self)
         return components.day ?? 0
     }
+    
+    func format(with format: DateFormat) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format.rawValue
+        return formatter.string(from: self)
+    }
+    static func mock(count: Int) -> [Date] {
+        var returnDates = [Date]()
+        for _ in 0..<count {
+            returnDates.append(Date.random())
+        }
+        return returnDates
+    }
+    
+    static func random() -> Date {
+        let randomTime = TimeInterval(Int32.random(in: 0...Int32.max))
+        return Date(timeIntervalSince1970: randomTime)
+    }
+}
+
+
+
+enum DateFormat: String {
+    case yyyyMMM = "yyyy MMM"
+    case yyyyMMMM = "yyyy MMMM"
 }

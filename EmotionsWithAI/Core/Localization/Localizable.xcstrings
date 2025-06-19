@@ -57,6 +57,9 @@
         }
       }
     },
+    "Burak" : {
+
+    },
     "Conversation Start Date " : {
 
     },
@@ -79,6 +82,9 @@
           }
         }
       }
+    },
+    "Data Not Found" : {
+
     },
     "Detail" : {
 
@@ -123,6 +129,9 @@
           }
         }
       }
+    },
+    "Failed to load data" : {
+
     },
     "Fear" : {
       "extractionState" : "manual",
@@ -185,6 +194,9 @@
     "Last Feeling For You" : {
 
     },
+    "Loading..." : {
+
+    },
     "Message Count " : {
 
     },
@@ -234,6 +246,9 @@
           }
         }
       }
+    },
+    "Retry" : {
+
     },
     "Sadness" : {
       "extractionState" : "manual",

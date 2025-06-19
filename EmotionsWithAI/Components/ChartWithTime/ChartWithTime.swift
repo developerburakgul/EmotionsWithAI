@@ -1,14 +1,10 @@
 import SwiftUI
 import Charts
 
-struct ChartData: Identifiable {
-    let id: UUID = UUID()
-    let date: Date
-    let sentiment: Sentiment
-}
+
 
 struct ChartWithTime: View {
-    @StateObject var viewModel: ChartWithTimeViewModel = ChartWithTimeViewModel()
+    @Binding var chartDatas: [ChartData]
     var body: some View {
         ZStack {
             Color.black.opacity(0.1)
@@ -24,16 +20,16 @@ struct ChartWithTime: View {
     }
 
     private var timeText: some View {
-        Text(viewModel.thisMonthString)
+        Text(Date().format(with: .yyyyMMMM))
             .padding()
             .font(.title)
     }
 
     private var chart: some View {
         Chart {
-            ForEach(viewModel.chartDatas) { item in
+            ForEach(chartDatas) { item in
                 BarMark(
-                    x: .value("", viewModel.getSentimentLabelValue(item)),
+                    x: .value("", item.date.getDay()),
                     y: .value("", item.sentiment.score.convertToPercentage())
                 )
                 .foregroundStyle(by: .value("Sentiment label", item.sentiment.label.getStringValue))
@@ -50,7 +46,7 @@ struct ChartWithTime: View {
         ])
         .chartXScale(range: .plotDimension(startPadding: 8, endPadding: 16))
         .chartXAxis {
-            AxisMarks(values: viewModel.chartXAxisValues) { value in
+            AxisMarks(values: [1,6,11,16,21,26]) { value in
                 AxisValueLabel() {
                     if let intValue = value.as(Int.self) {
                         Text("\(intValue)")
@@ -60,7 +56,7 @@ struct ChartWithTime: View {
             }
         }
         .chartScrollPosition(initialX: 1)
-        .chartXVisibleDomain(length: viewModel.chartXAxisVisibleDomainLength)
+        .chartXVisibleDomain(length: daysInCurrentMonth)
         .chartYAxis {
             AxisMarks(values: [0, 50, 100]) {
                 AxisValueLabel(format: Decimal.FormatStyle.Percent.percent.scale(1))
@@ -71,38 +67,18 @@ struct ChartWithTime: View {
         }
         .frame(maxWidth: .infinity)
     }
+    
+    var daysInCurrentMonth: Int {
+        let now = Date()
+        let range = Calendar.current.range(of: .day, in: .month, for: now)
+        return range?.count ?? 30
+    }
 }
 
 #Preview {
-    ChartWithTime()
+    @Previewable @State var mock = ChartData.getMockData(for: .month)
+    ChartWithTime(chartDatas: $mock)
         .frame(height: 300)
 }
 
-enum ChartDataType {
-    case month
-}
 
-extension ChartData {
-    public static func getMockData(for chartDataType: ChartDataType) -> [ChartData] {
-        var returnArray: [ChartData] = []
-        let now = Date()
-        let chartRange: (upper: Int, calendarAddType: Calendar.Component)
-
-        switch chartDataType {
-        case .month:
-            let days = Calendar.current.range(of: .day, in: .month, for: now)?.count ?? 30
-            chartRange = (days, .day)
-        }
-
-        for i in 1...chartRange.upper {
-            let tempDate = Calendar.current.date(byAdding: chartRange.calendarAddType, value: i, to: now)!
-            returnArray.append(
-                ChartData(
-                    date: tempDate,
-                    sentiment: Sentiment.getRandom()
-                )
-            )
-        }
-        return returnArray
-    }
-}

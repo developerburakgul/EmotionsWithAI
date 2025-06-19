@@ -9,12 +9,16 @@ import Foundation
 
 @MainActor
 final class PersonViewModel: ObservableObject {
-    var persons: [Person] = Person.getMockData()
-    @Published var shownPersons: [Person] = Person.getMockData()
+    private var persons: [Person]
+    @Published var shownPersons: [Person]
     @Published var selectedPerson: Person? = nil
     
+    let personManager: PersonManager
+    
     init(container: DependencyContainer) {
-        
+        self.personManager = container.resolve(PersonManager.self)!
+        self.persons = []
+        self.shownPersons = persons
     }
     
     func userDidSearch(_ searchQuery: String) {
@@ -34,4 +38,14 @@ final class PersonViewModel: ObservableObject {
     private func resetSearch() {
         shownPersons = persons
     }
+    
+    func loadPersons() async {
+        do {
+            persons = try await personManager.fetchAllPersons()
+            self.shownPersons = persons
+        } catch  {
+            print("Error: \(error)")
+        }
+    }
+    
 }
