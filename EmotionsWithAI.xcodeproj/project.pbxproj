@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		232F693A2DF5C7DB00E81CE3 /* ObiletCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 232F69392DF5C7DB00E81CE3 /* ObiletCalendar */; };
 		232F693C2DF5C7DB00E81CE3 /* ObiletCollectionView in Frameworks */ = {isa = PBXBuildFile; productRef = 232F693B2DF5C7DB00E81CE3 /* ObiletCollectionView */; };
+		23A2F6802E047CDF00C98FB3 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 23A2F67F2E047CDF00C98FB3 /* ZIPFoundation */; };
+		23CF4C832E0693DC0099578F /* MBWebService in Frameworks */ = {isa = PBXBuildFile; productRef = 23CF4C822E0693DC0099578F /* MBWebService */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 			files = (
 				232F693C2DF5C7DB00E81CE3 /* ObiletCollectionView in Frameworks */,
 				232F693A2DF5C7DB00E81CE3 /* ObiletCalendar in Frameworks */,
+				23CF4C832E0693DC0099578F /* MBWebService in Frameworks */,
+				23A2F6802E047CDF00C98FB3 /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +78,8 @@
 			packageProductDependencies = (
 				232F69392DF5C7DB00E81CE3 /* ObiletCalendar */,
 				232F693B2DF5C7DB00E81CE3 /* ObiletCollectionView */,
+				23A2F67F2E047CDF00C98FB3 /* ZIPFoundation */,
+				23CF4C822E0693DC0099578F /* MBWebService */,
 			);
 			productName = EmotionsWithAI;
 			productReference = 23102B722DEC77010087076E /* EmotionsWithAI.app */;
@@ -106,6 +112,8 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				232F69382DF5C7DB00E81CE3 /* XCRemoteSwiftPackageReference "OBCalendar" */,
+				23A2F67E2E047CDF00C98FB3 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+				23CF4C812E0693DC0099578F /* XCRemoteSwiftPackageReference "MBWebService" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 23102B732DEC77010087076E /* Products */;
@@ -349,6 +357,22 @@
 				minimumVersion = 0.2.2;
 			};
 		};
+		23A2F67E2E047CDF00C98FB3 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.19;
+			};
+		};
+		23CF4C812E0693DC0099578F /* XCRemoteSwiftPackageReference "MBWebService" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/developerburakgul/MBWebService";
+			requirement = {
+				branch = development;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -361,6 +385,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 232F69382DF5C7DB00E81CE3 /* XCRemoteSwiftPackageReference "OBCalendar" */;
 			productName = ObiletCollectionView;
+		};
+		23A2F67F2E047CDF00C98FB3 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23A2F67E2E047CDF00C98FB3 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+		23CF4C822E0693DC0099578F /* MBWebService */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23CF4C812E0693DC0099578F /* XCRemoteSwiftPackageReference "MBWebService" */;
+			productName = MBWebService;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

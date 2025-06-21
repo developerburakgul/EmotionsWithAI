@@ -41,7 +41,7 @@ final class PersonViewModel: ObservableObject {
     
     func loadPersons() async {
         do {
-            persons = try await personManager.fetchAllPersons()
+            persons = try personManager.fetchAllPersons()
             self.shownPersons = persons
         } catch  {
             print("Error: \(error)")

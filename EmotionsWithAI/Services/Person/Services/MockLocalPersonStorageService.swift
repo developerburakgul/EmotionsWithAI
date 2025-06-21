@@ -9,7 +9,7 @@ import Foundation
 
 @MainActor
 struct MockLocalPersonStorageService: LocalPersonStorageServiceProtocol {
-    func fetchAllPersons() async throws -> [PersonEntity] {
+    func fetchAllPersons() throws -> [PersonEntity] {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
 

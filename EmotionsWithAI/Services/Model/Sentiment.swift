@@ -13,6 +13,11 @@ struct Sentiment: Identifiable, Codable, Equatable, Hashable{
     
     let label: SentimentLabel
     let score: Double
+    
+    enum CodingKeys:String, CodingKey {
+        case label
+        case score
+    }
 }
 
 

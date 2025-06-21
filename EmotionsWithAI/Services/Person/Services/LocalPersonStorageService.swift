@@ -87,7 +87,7 @@ struct LocalPersonStorageService: LocalPersonStorageServiceProtocol {
 
 @MainActor
 protocol LocalPersonStorageServiceProtocol {
-    func fetchAllPersons() async throws -> [PersonEntity]
+    func fetchAllPersons() throws -> [PersonEntity]
     func createPersonEntity(_ personEntity: PersonEntity) throws(LocalPersonStorageError)
     func deletePersonEntity(_ personEntity: PersonEntity) throws(LocalPersonStorageError)
     func findPersonEntity(from person: Person) throws(LocalPersonStorageError) -> PersonEntity

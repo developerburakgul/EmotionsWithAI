@@ -9,7 +9,7 @@ import SwiftData
 
 @Model
 final class PersonEntity {
-    @Attribute(.unique) var id: UUID
+    @Attribute(.unique) public var id: UUID
     var name: String
     var messages: [Message] = []
     var analysisDates: [Date] = []

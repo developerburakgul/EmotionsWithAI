@@ -36,6 +36,12 @@
         }
       }
     },
+    "Analysis Count" : {
+
+    },
+    "Analysis Dates" : {
+
+    },
     "Anger" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -56,9 +62,6 @@
           }
         }
       }
-    },
-    "Burak" : {
-
     },
     "Conversation Start Date " : {
 
@@ -195,6 +198,9 @@
 
     },
     "Loading..." : {
+
+    },
+    "Message Count" : {
 
     },
     "Message Count " : {

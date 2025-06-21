@@ -24,10 +24,12 @@ struct PersonHelper {
     
     static func convertPersonEntityToPersonDetail(_ personEntity: PersonEntity) -> PersonDetail {
         let personDetail = PersonDetail(
+            id: personEntity.id,
             name: personEntity.name,
             sentiments: Self.getSentiments(from: personEntity),
             lastSentimentLabel: Self.getLastSentimentLabel(from: personEntity),
             firstDateForConversation: Self.getFirstDateForConversation(from: personEntity),
+            lastDateForConversation: personEntity.lastDateForConversation,
             analysisCount: Self.getAnalysisCount(from: personEntity),
             messageCount: 12,
             mostSentiment: Self.findMostSentiment(personEntity.messages)
@@ -162,12 +164,18 @@ final class PersonManager: PersonManagerProtocol {
         self.localStorageService = localPersonStorage
     }
     
-    func fetchAllPersons() async throws -> [Person] {
+    func fetchAllPersons() throws -> [Person] {
         do {
-            return try await localStorageService.fetchAllPersons().map { $0.convertToPerson() }
+            return try localStorageService.fetchAllPersons().map { $0.convertToPerson() }
         } catch  {
             print("Error loading persons \(error)")
             throw error
+        }
+    }
+    
+    func fetchPerson(name: String) -> Person? {
+        return try? fetchAllPersons().first { person in
+            person.name == name
         }
     }
     
@@ -200,7 +208,7 @@ final class PersonManager: PersonManagerProtocol {
     }
     
     
-    func fetchPersonDetail(person: Person) async throws(LocalPersonStorageError) -> PersonDetail {
+    func fetchPersonDetail(person: Person) throws(LocalPersonStorageError) -> PersonDetail {
         
         do {
             let personEntity = try localStorageService.findPersonEntity(from: person)

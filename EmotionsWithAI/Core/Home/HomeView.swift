@@ -21,7 +21,13 @@ struct HomeView: View {
                     .fileImporter(
                         isPresented: $showFileImporter,
                         allowedContentTypes: [.zip]) { result in
-                            // todo
+                            do {
+                                let selectedFileURL = try result.get()
+                                viewModel.selectFile(selectedFileURL: selectedFileURL)
+                            } catch {
+                                print(error)
+                            }
+                            
                         }
             }
         }
@@ -33,18 +39,22 @@ struct HomeView: View {
     }
     
     private var mainContent: some View {
-        VStack(alignment: .center, spacing: 8) {
-            chart
-            text
-            Spacer()
-            cards
+        ScrollView {
+            VStack(alignment: .center, spacing: 8) {
+                chart
+                text
+                Spacer()
+                cards
+            }
         }
+
     }
     
+    @ViewBuilder
     private var chart: some View {
         ChartWithTime(chartDatas: $viewModel.chartDatas)
-            .frame(height: 250)
-            .padding()
+        .frame(height: 250)
+        .padding()
         
     }
     
@@ -55,7 +65,45 @@ struct HomeView: View {
     }
     
     private var cards: some View {
-        Text("Burak")
+        VStack(alignment: .center, spacing: 4) {
+            NonExpandableCell {
+                HStack {
+                    Text("Analysis Count")
+                    Spacer()
+                    Text("\(viewModel.analysisDates.count)")
+                }
+            } content: {
+            }
+            
+            ExpandableCell {
+                HStack {
+                    Text("Analysis Dates")
+                        .foregroundStyle(UIColor.label.toColor)
+                    Spacer()
+                }
+            } content: {
+                VStack(alignment: .center, spacing: 4) {
+                    ForEach(viewModel.analysisDates, id: \.self) { date in
+                        Text(date.format(with: .yyyyMMMM))
+                    }
+                }
+            }
+            
+            NonExpandableCell {
+                HStack {
+                    Text("Message Count")
+                        .foregroundStyle(UIColor.label.toColor)
+                    Spacer()
+                    Text("\(viewModel.countOfMessages)")
+                }
+            } content: {
+                
+            }
+
+
+
+        }
+        .padding()
     }
     
     private var addButton: some View {
@@ -86,7 +134,13 @@ struct HomeView: View {
     }
 }
 
+//#Preview {
+//    TabBarView()
+//        .previewEnvironmentObject()
+//}
+
 #Preview {
-    TabBarView()
+    let container = DevPreview.shared.container
+    return TabBarView()
         .previewEnvironmentObject()
 }

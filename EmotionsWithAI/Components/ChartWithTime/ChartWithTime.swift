@@ -35,16 +35,17 @@ struct ChartWithTime: View {
                 .foregroundStyle(by: .value("Sentiment label", item.sentiment.label.getStringValue))
             }
         }
-        .chartForegroundStyleScale([
-            "Anger": .red,
-            "Disgust": .green,
-            "Fear": .blue,
-            "Joy": .yellow,
-            "Neutral": .gray,
-            "Sadness": .purple,
-            "Suprise": .brown
-        ])
-        .chartXScale(range: .plotDimension(startPadding: 8, endPadding: 16))
+        .chartYScale(domain: 0...100)
+//        .chartForegroundStyleScale([
+//            "Anger": .red,
+//            "Disgust": .green,
+//            "Fear": .blue,
+//            "Joy": .yellow,
+//            "Neutral": .gray,
+//            "Sadness": .purple,
+//            "Suprise": .brown
+//        ])
+        .chartXScale(domain: 1...daysInCurrentMonth, range: .plotDimension(startPadding: 8, endPadding: 16))
         .chartXAxis {
             AxisMarks(values: [1,6,11,16,21,26]) { value in
                 AxisValueLabel() {
@@ -77,6 +78,11 @@ struct ChartWithTime: View {
 
 #Preview {
     @Previewable @State var mock = ChartData.getMockData(for: .month)
+    ChartWithTime(chartDatas: $mock)
+        .frame(height: 300)
+}
+#Preview("Empty") {
+    @Previewable @State var mock: [ChartData] = []
     ChartWithTime(chartDatas: $mock)
         .frame(height: 300)
 }

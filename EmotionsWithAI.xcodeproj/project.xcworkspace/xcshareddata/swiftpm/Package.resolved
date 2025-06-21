@@ -1,6 +1,15 @@
 {
-  "originHash" : "fea5a05d7ab1b9b4e5232a7f59eeac6c69c0db4ea14ba2644833f9608070dd02",
+  "originHash" : "fab001499d4b4d070a8bd823e55c9dc83a0cd31043edf5bfeed4abe72e827c82",
   "pins" : [
+    {
+      "identity" : "mbwebservice",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/developerburakgul/MBWebService",
+      "state" : {
+        "branch" : "development",
+        "revision" : "c2975efab60dd6189b1ab0cadd7e8730c9607dd9"
+      }
+    },
     {
       "identity" : "obcalendar",
       "kind" : "remoteSourceControl",
@@ -8,6 +17,15 @@
       "state" : {
         "revision" : "851654293da2675a922ce3e2f4fd316e53fcc6d2",
         "version" : "0.2.2"
+      }
+    },
+    {
+      "identity" : "zipfoundation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/weichsel/ZIPFoundation.git",
+      "state" : {
+        "revision" : "02b6abe5f6eef7e3cbd5f247c5cc24e246efcfe0",
+        "version" : "0.9.19"
       }
     }
   ],

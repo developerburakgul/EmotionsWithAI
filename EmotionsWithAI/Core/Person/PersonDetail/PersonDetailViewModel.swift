@@ -27,7 +27,7 @@ final class PersonDetailViewModel: ObservableObject {
         print("Loading detail for person: \(person.id)")
         state = .loading
         do {
-            let detail = try await personManager.fetchPersonDetail(person: person)
+            let detail = try  personManager.fetchPersonDetail(person: person)
             print("Detail fetched: \(detail)")
             personDetail = detail
             state = .loaded
