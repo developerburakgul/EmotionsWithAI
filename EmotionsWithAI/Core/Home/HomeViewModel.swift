@@ -48,26 +48,29 @@ final class HomeViewModel: ObservableObject {
     }
     
     func selectFile(selectedFileURL: URL) {
+        LoaderManager.shared.show(type: .analyzing)
         Task {
             do {
                 let messages = try WPMessageHelper.getStringFormat(from: selectedFileURL)
-    //            let participants = WPMessageHelper.extractParticipants(from: messages)
-    //            let personName = try extractUser(from: participants)
-    //            if let person = personManager.fetchPerson(name: personName) {
-    //                let personDetail = try personManager.fetchPersonDetail(person: person)
-    //                let filteredMessages = WPMessageHelper.filterMessages(after: personDetail.lastDateForConversation, from: messages)
-    //
-    //                //MARK: - AnalyzeManager todo
-    //            } else {
-    //
-    //                //MARK: - TODO CONVERT PERSON ENTİTY TO SİMPLE DATA FOR PERSON MANAGER
-    //                try personManager.addPersonEntity(
-    //                    PersonEntity(name: personName)
-    //                )
-    //            }
-                let apiResponseModel = try await analyzeManager.analyzeWhatsappChat(text: messages)
-                dump(apiResponseModel)
+                let participants = WPMessageHelper.extractParticipants(from: messages)
+                let personName = try extractUser(from: participants)
+                if let person = personManager.fetchPerson(name: personName) {
+                    let personDetail = try personManager.fetchPersonDetail(person: person)
+                    let filteredMessages = WPMessageHelper.filterMessages(after: personDetail.lastDateForConversation, from: messages)
+    
+                    //MARK: - AnalyzeManager todo
+                } else {
+    
+                    //MARK: - TODO CONVERT PERSON ENTİTY TO SİMPLE DATA FOR PERSON MANAGER
+                    let apiResponseModel = try await analyzeManager.analyzeWhatsappChat(text: messages)
+                    dump(apiResponseModel)
+                    LoaderManager.shared.hide()
+                    try personManager.addPersonEntity(
+                        PersonEntity(name: personName)
+                    )
+                }
                 
+            
             } catch  {
                 print("error: \(error)")
             }

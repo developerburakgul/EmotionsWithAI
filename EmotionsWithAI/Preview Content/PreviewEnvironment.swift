@@ -21,25 +21,40 @@ class DevPreview {
     static let shared = DevPreview()
     
     let personManager: PersonManager
-    let analyzeManager: AnalyzeManager
     let selfEmotionManager: SelfEmotionManager
+    let userManager: UserManager
+    let analyzeManager: AnalyzeManager
+    let webService: MBWebServiceProtocol
+    
     var container: DependencyContainer {
         let container = DependencyContainer()
         container.register(PersonManager.self, service: personManager)
-        container.register(AnalyzeManager.self, service: analyzeManager)
         container.register(SelfEmotionManager.self, service: selfEmotionManager)
+        container.register(UserManager.self, service: userManager)
+        container.register(MBWebServiceProtocol.self, service: webService)
+        container.register(AnalyzeManager.self, service: analyzeManager)
+        
         return container
     }
         
     init() {
         let localPersonStorage = LocalPersonStorageService()
         self.personManager = PersonManager(localPersonStorage: localPersonStorage)
-    
-        self.analyzeManager = AnalyzeManager(webService: MBWebService.shared)
         
         let localSelfEmotionStorageService: LocalSelfEmotionStorageServiceProtocol = LocalSelfEmotionStorageService()
         self.selfEmotionManager = SelfEmotionManager(localSelfEmotionStorageService: localSelfEmotionStorageService)
+        
+        
+        let localUserStorageService: LocalUserStorageServiceProtocol = LocalUserStorageService()
+        self.userManager = UserManager(localUserStorageService: localUserStorageService)
+        
+        let webService: MBWebServiceProtocol = MBWebService.shared
+        self.webService = webService
+        
+        self.analyzeManager = AnalyzeManager(webService: MBWebService.shared)
+
     }
+
 
 }
 

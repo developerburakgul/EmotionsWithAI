@@ -7,11 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		232D717C2E06C388007B693D /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 232D717B2E06C388007B693D /* Lottie */; };
 		232F693A2DF5C7DB00E81CE3 /* ObiletCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 232F69392DF5C7DB00E81CE3 /* ObiletCalendar */; };
 		232F693C2DF5C7DB00E81CE3 /* ObiletCollectionView in Frameworks */ = {isa = PBXBuildFile; productRef = 232F693B2DF5C7DB00E81CE3 /* ObiletCollectionView */; };
 		23A2F6802E047CDF00C98FB3 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 23A2F67F2E047CDF00C98FB3 /* ZIPFoundation */; };
 		23CF4C832E0693DC0099578F /* MBWebService in Frameworks */ = {isa = PBXBuildFile; productRef = 23CF4C822E0693DC0099578F /* MBWebService */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		232D71802E06C3BD007B693D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		23102B722DEC77010087076E /* EmotionsWithAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionsWithAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				232D717C2E06C388007B693D /* Lottie in Frameworks */,
 				232F693C2DF5C7DB00E81CE3 /* ObiletCollectionView in Frameworks */,
 				232F693A2DF5C7DB00E81CE3 /* ObiletCalendar in Frameworks */,
 				23CF4C832E0693DC0099578F /* MBWebService in Frameworks */,
@@ -66,6 +81,7 @@
 				23102B6E2DEC77010087076E /* Sources */,
 				23102B6F2DEC77010087076E /* Frameworks */,
 				23102B702DEC77010087076E /* Resources */,
+				232D71802E06C3BD007B693D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -80,6 +96,7 @@
 				232F693B2DF5C7DB00E81CE3 /* ObiletCollectionView */,
 				23A2F67F2E047CDF00C98FB3 /* ZIPFoundation */,
 				23CF4C822E0693DC0099578F /* MBWebService */,
+				232D717B2E06C388007B693D /* Lottie */,
 			);
 			productName = EmotionsWithAI;
 			productReference = 23102B722DEC77010087076E /* EmotionsWithAI.app */;
@@ -114,6 +131,7 @@
 				232F69382DF5C7DB00E81CE3 /* XCRemoteSwiftPackageReference "OBCalendar" */,
 				23A2F67E2E047CDF00C98FB3 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
 				23CF4C812E0693DC0099578F /* XCRemoteSwiftPackageReference "MBWebService" */,
+				232D717A2E06C388007B693D /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 23102B732DEC77010087076E /* Products */;
@@ -349,6 +367,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		232D717A2E06C388007B693D /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.2;
+			};
+		};
 		232F69382DF5C7DB00E81CE3 /* XCRemoteSwiftPackageReference "OBCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/oBilet/OBCalendar";
@@ -376,6 +402,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		232D717B2E06C388007B693D /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 232D717A2E06C388007B693D /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		232F69392DF5C7DB00E81CE3 /* ObiletCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 232F69382DF5C7DB00E81CE3 /* XCRemoteSwiftPackageReference "OBCalendar" */;

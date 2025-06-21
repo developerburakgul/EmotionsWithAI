@@ -36,6 +36,7 @@ struct HomeView: View {
         }
         
         
+        
     }
     
     private var mainContent: some View {

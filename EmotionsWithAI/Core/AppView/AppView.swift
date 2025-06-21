@@ -10,20 +10,32 @@ import SwiftUI
 struct AppView: View {
     @StateObject var appState = AppState()
     var body: some View {
-        AppViewBuilder(
-            onboardingView: {
-                OnboardingView()
-                    
-            },
-            tabBarView: {
-                TabBarView()
-            },
-            showTabBarView: appState.showTabbar
-        )
-        .environmentObject(appState)
+        ZStack {
+            AppViewBuilder(
+                onboardingView: {
+                    OnboardingView()
+                        
+                },
+                tabBarView: {
+                    TabBarView()
+                },
+                showTabBarView: appState.showTabbar
+            )
+            .environmentObject(appState)
+            
+            LoaderOverlayView()
+        }
+        .onAppear {
+            LoaderManager.shared.show(type: .analyzing)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                LoaderManager.shared.hide()
+            }
+        }
+ 
     }
 }
 
 #Preview {
     AppView()
+        .previewEnvironmentObject()
 }

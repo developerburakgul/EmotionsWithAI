@@ -44,23 +44,21 @@ struct Dependencies {
     init(container: DependencyContainer) {
         self.container = container
         let localPersonStorageService = LocalPersonStorageService()
-        
-        let localSelfEmotionStorageService: LocalSelfEmotionStorageServiceProtocol = LocalSelfEmotionStorageService()
-        let selfEmotionManager = SelfEmotionManager(localSelfEmotionStorageService: localSelfEmotionStorageService)
         container.register(LocalPersonStorageService.self, service: localPersonStorageService)
         container.register(PersonManager.self, service: PersonManager(localPersonStorage: localPersonStorageService))
         
+        let localSelfEmotionStorageService: LocalSelfEmotionStorageServiceProtocol = LocalSelfEmotionStorageService()
+        let selfEmotionManager = SelfEmotionManager(localSelfEmotionStorageService: localSelfEmotionStorageService)
         container.register(SelfEmotionManager.self, service: selfEmotionManager)
         
         let localUserStorageService: LocalUserStorageServiceProtocol = LocalUserStorageService()
         let userManager = UserManager(localUserStorageService: localUserStorageService)
-        
         container.register(UserManager.self, service: userManager)
+        
         let webService: MBWebServiceProtocol = MBWebService.shared
         container.register(MBWebServiceProtocol.self, service: webService)
-        let analyzeManager = AnalyzeManager(webService: webService)
-        container.register(AnalyzeManager.self, service: analyzeManager)
         
+        let analyzeManager = AnalyzeManager(webService: webService)
         container.register(AnalyzeManager.self, service: analyzeManager)
     }
     
