@@ -49,6 +49,7 @@ struct CalendarView: View {
 
         }
         .padding()
+        .ignoresSafeArea(.container, edges: .bottom)
         .task {
             await viewModel.loadData()
         }

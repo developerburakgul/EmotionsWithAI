@@ -8,147 +8,7 @@
 import Foundation
 
 
-struct PersonHelper {
 
-    
-    static func convertPersonEntityToPerson(_ personEntity: PersonEntity) -> Person {
-        let person = Person(
-            id: personEntity.id,
-            name: personEntity.name,
-            mostSentiment: Self.findMostSentiment(personEntity.messages)
-        )
-        
-        return person
-        
-    }
-    
-    static func convertPersonEntityToPersonDetail(_ personEntity: PersonEntity) -> PersonDetail {
-        let personDetail = PersonDetail(
-            id: personEntity.id,
-            name: personEntity.name,
-            sentiments: Self.getSentiments(from: personEntity),
-            lastSentimentLabel: Self.getLastSentimentLabel(from: personEntity),
-            firstDateForConversation: Self.getFirstDateForConversation(from: personEntity),
-            lastDateForConversation: personEntity.lastDateForConversation,
-            analysisCount: Self.getAnalysisCount(from: personEntity),
-            messageCount: 12,
-            mostSentiment: Self.findMostSentiment(personEntity.messages)
-        )
-        return personDetail
-    }
-    
-//    static func getCalendarModels(from personEntity: PersonEntity) -> [CalendarModels] {
-//        let groupedByDay = Dictionary(grouping: personEntity.messages) { (message) -> Date in
-//            return Calendar.current.startOfDay(for: message.startTime)
-//        }
-//        
-//        var returnArray: [CalendarModels] = []
-//        
-//        for (day, messages) in groupedByDay {
-//            let calendarModel = CalendarModels(date: day, sentiment: Self.findMostSentiment(messages))
-//            returnArray.append(calendarModel)
-//        }
-//        return returnArray
-//    }
-    
-    static func getCalendarModels(from personEntity: PersonEntity) -> [CalendarModels] {
-        var utcCalendar = Calendar.current // Kopya oluştur
-        utcCalendar.timeZone = TimeZone(identifier: "UTC")!
-        
-        let groupedByDay = Dictionary(grouping: personEntity.messages) { (message) -> Date in
-            let normalizedDate = utcCalendar.startOfDay(for: message.startTime)
-            print("Normalized date for \(message.startTime): \(normalizedDate)")
-            return normalizedDate
-        }
-        
-        var returnArray: [CalendarModels] = []
-        
-        for (day, messages) in groupedByDay {
-            let calendarModel = CalendarModels(date: day, sentiment: Self.findMostSentiment(messages))
-            returnArray.append(calendarModel)
-        }
-        return returnArray
-    }
-    
-    //MARK: - Private functions
-    
-    private static func findMostSentiment(_ messages: [Message]) -> Sentiment {
-        // TODO
-        Sentiment.mock().first!
-    }
-    
-    private static func getSentiments(from personEntity: PersonEntity) -> [Sentiment] {
-        struct SentimentCount {
-            var sentimentScore: Double = 0.0
-            var count: Int = 0
-        }
-        
-        func createSentiment(label: SentimentLabel) -> Sentiment {
-            let sentimentCount = sentimentsDictionary[label]!
-            guard sentimentCount.count > 0 else {
-                return Sentiment(label: label, score: 0)
-            }
-            return Sentiment(
-                label: label,
-                score: sentimentCount.sentimentScore / Double(sentimentCount.count)
-            )
-        }
-        var sentimentsDictionary: [SentimentLabel: SentimentCount] = [
-            .anger: SentimentCount(),
-            .disgust: SentimentCount(),
-            .fear: SentimentCount(),
-            .joy: SentimentCount(),
-            .sadness: SentimentCount(),
-            .neutral: SentimentCount(),
-            .suprise: SentimentCount()
-        ]
-        for message in personEntity.messages {
-            let sentiment = message.emotion.getMainSentiment()
-            sentimentsDictionary[sentiment.label]!.count += 1
-            sentimentsDictionary[sentiment.label]!.sentimentScore += sentiment.score
-        }
-        
-        return [
-            createSentiment(label: .anger),
-            createSentiment(label: .disgust),
-            createSentiment(label: .fear),
-            createSentiment(label: .joy),
-            createSentiment(label: .neutral),
-            createSentiment(label: .sadness),
-            createSentiment(label: .suprise)
-        ]
-        
-        
-        
-    }
-    
-    private static func getLastSentimentLabel(from personEntity: PersonEntity ) -> SentimentLabel {
-        let messages = personEntity.messages.sorted {
-            $0.endTime < $1.endTime
-        }
-        let lastMessage = messages.last!
-        return lastMessage.emotion.sentiments.sorted {
-            $0.score > $1.score
-        }.first!.label
-    }
-    
-    private static func getFirstDateForConversation(from personEntity: PersonEntity) -> Date {
-        let messages = personEntity.messages.sorted {
-            $0.endTime < $1.endTime
-        }
-        return messages.first!.startTime
-    }
-    
-    private static func getAllMessageCount(from personEntity: PersonEntity) -> Int {
-        return personEntity.messages.reduce(into: 0) { partialResult, message in
-            partialResult = partialResult + message.messageCount
-        }
-    }
-    
-    private static func getAnalysisCount(from personEntity: PersonEntity) -> Int {
-        return personEntity.analysisDates.count
-    }
-}
 
 protocol PersonManagerProtocol {
     
@@ -162,6 +22,60 @@ final class PersonManager: PersonManagerProtocol {
     
     init(localPersonStorage: LocalPersonStorageServiceProtocol) {
         self.localStorageService = localPersonStorage
+    }
+    
+    func save(participantData: ParticipantDataModel, userLastMessageDate: Date)  {
+        do {
+            let person = fetchPerson(name: participantData.userInfo.name)
+            
+            if let person = person,
+               let personEntity = try localStorageService.findPersonEntity(from: person) {
+                
+                let newMessages = participantData.messages.map { $0.convertToPersonMessage() }
+
+                // Burada yeni mesajlara parent'larını atıyoruz
+                for message in newMessages {
+                    message.person = personEntity
+                }
+                let personLastDateForConversation = PersonHelper.getLastDateOfMessage(from: participantData.messages)
+                let dateForLastMessageForAnalysis: Date = userLastMessageDate > personLastDateForConversation ? userLastMessageDate : personLastDateForConversation
+                let updatedPersonEntity = PersonEntity(
+                    id: personEntity.id,
+                    name: personEntity.name,
+                    messages: personEntity.messages + newMessages,
+                    analysisDates: personEntity.analysisDates + [.now],
+                    lastSentimentLabel: PersonHelper.getLastSentimentLabel(from: participantData.messages),
+                    firstDateForConversation: personEntity.firstDateForConversation,
+                    lastDateForConversation: personLastDateForConversation,
+                    dateForLastMessageForAnalysis: dateForLastMessageForAnalysis
+                )
+
+                try localStorageService.updatePersonEntity(updatedPersonEntity)
+            }else {
+                let personLastDateForConversation = PersonHelper.getLastDateOfMessage(from: participantData.messages)
+                let dateForLastMessageForAnalysis: Date = userLastMessageDate > personLastDateForConversation ? userLastMessageDate : personLastDateForConversation
+                let personEntity = PersonEntity(
+                    id: .init(),
+                    name: participantData.userInfo.name,
+                    analysisDates: [.now],
+                    lastSentimentLabel: PersonHelper.getLastSentimentLabel(from: participantData.messages),
+                    firstDateForConversation: PersonHelper.getFirstDateOfMessage(from: participantData.messages),
+                    lastDateForConversation: personLastDateForConversation,
+                    dateForLastMessageForAnalysis: dateForLastMessageForAnalysis
+                )
+
+                let messages = participantData.messages.map { $0.convertToPersonMessage() }
+                for message in messages {
+                    message.person = personEntity
+                }
+                personEntity.messages = messages
+
+                try localStorageService.createPersonEntity(personEntity)
+            }
+        } catch  {
+            
+        }
+        
     }
     
     func fetchAllPersons() throws -> [Person] {
@@ -192,10 +106,12 @@ final class PersonManager: PersonManagerProtocol {
     
     func deletePerson(_ person: Person) throws(LocalPersonStorageError){
         do {
-            let personEntity = try localStorageService.findPersonEntity(from: person)
+            guard let personEntity = try localStorageService.findPersonEntity(from: person) else {
+                throw LocalUserStorageError.notFoundUserEntity
+            }
             try localStorageService.deletePersonEntity(personEntity)
         } catch  {
-            throw error
+            throw LocalPersonStorageError.notDeletedPersonEntity
         }
     }
     
@@ -208,10 +124,12 @@ final class PersonManager: PersonManagerProtocol {
     }
     
     
-    func fetchPersonDetail(person: Person) throws(LocalPersonStorageError) -> PersonDetail {
+    func fetchPersonDetail(person: Person) throws(LocalPersonStorageError) -> PersonDetail? {
         
         do {
-            let personEntity = try localStorageService.findPersonEntity(from: person)
+            guard let personEntity = try localStorageService.findPersonEntity(from: person) else {
+                return nil
+            }
             return PersonHelper.convertPersonEntityToPersonDetail(personEntity)
         } catch  {
             throw LocalPersonStorageError.couldntFetchPersonDetails
@@ -221,7 +139,9 @@ final class PersonManager: PersonManagerProtocol {
     func fetchCalendarModels(for personDetail: PersonDetail) async throws -> [CalendarModels] {
     
         do {
-            let personEntity = try localStorageService.findPersonEntity(from: personDetail)
+            guard let personEntity = try localStorageService.findPersonEntity(from: personDetail) else {
+                throw LocalUserStorageError.notFoundUserEntity
+            }
             return PersonHelper.getCalendarModels(from: personEntity)
         } catch  {
             throw LocalPersonStorageError.couldntFetchCalendarModels

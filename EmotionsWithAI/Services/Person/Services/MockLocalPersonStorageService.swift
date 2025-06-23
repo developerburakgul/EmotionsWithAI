@@ -17,7 +17,7 @@ struct MockLocalPersonStorageService: LocalPersonStorageServiceProtocol {
         return [
             PersonEntity(
                 name: "Person 1",
-                messages: Message.mock(startingFrom: formatter.date(from: "2025-01-01 08:00") ?? .now, count: 10),
+                messages: PersonMessage.mock(startingFrom: formatter.date(from: "2025-01-01 08:00") ?? .now, count: 10),
                 analysisDates: Date.mock(count: 3),
                 lastSentimentLabel: SentimentLabel.getRandom(),
                 firstDateForConversation: Date.random(),
@@ -25,7 +25,7 @@ struct MockLocalPersonStorageService: LocalPersonStorageServiceProtocol {
             ),
             PersonEntity(
                 name: "Person 2",
-                messages: Message.mock(startingFrom: formatter.date(from: "2025-01-10 08:00") ?? .now, count: 10),
+                messages: PersonMessage.mock(startingFrom: formatter.date(from: "2025-01-10 08:00") ?? .now, count: 10),
                 analysisDates: Date.mock(count: 3),
                 lastSentimentLabel: SentimentLabel.getRandom(),
                 firstDateForConversation: Date.random(),
@@ -34,7 +34,7 @@ struct MockLocalPersonStorageService: LocalPersonStorageServiceProtocol {
             
             PersonEntity(
                 name: "Person 3",
-                messages: Message.mock(startingFrom: formatter.date(from: "2025-01-15 08:00") ?? .now, count: 10),
+                messages: PersonMessage.mock(startingFrom: formatter.date(from: "2025-01-15 08:00") ?? .now, count: 10),
                 analysisDates: Date.mock(count: 3),
                 lastSentimentLabel: SentimentLabel.getRandom(),
                 firstDateForConversation: Date.random(),
@@ -52,12 +52,12 @@ struct MockLocalPersonStorageService: LocalPersonStorageServiceProtocol {
         
     }
     
-    func findPersonEntity(from person: Person) throws(LocalPersonStorageError) -> PersonEntity {
+    func findPersonEntity(from person: Person) throws(LocalPersonStorageError) -> PersonEntity? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         return PersonEntity(
             name: "Person 1",
-            messages: Message.mock(startingFrom: formatter.date(from: "2025-01-01 08:00") ?? .now, count: 10),
+            messages: PersonMessage.mock(startingFrom: formatter.date(from: "2025-01-01 08:00") ?? .now, count: 10),
             analysisDates: Date.mock(count: 3),
             lastSentimentLabel: SentimentLabel.getRandom(),
             firstDateForConversation: Date.random(),
@@ -65,12 +65,12 @@ struct MockLocalPersonStorageService: LocalPersonStorageServiceProtocol {
         )
     }
     
-    func findPersonEntity(from personDetail: PersonDetail) throws(LocalPersonStorageError) -> PersonEntity {
+    func findPersonEntity(from personDetail: PersonDetail) throws(LocalPersonStorageError) -> PersonEntity? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         return PersonEntity(
             name: "Person 1",
-            messages: Message.mock(startingFrom: formatter.date(from: "2025-01-01 08:00") ?? .now, count: 10),
+            messages: PersonMessage.mock(startingFrom: formatter.date(from: "2025-01-01 08:00") ?? .now, count: 10),
             analysisDates: Date.mock(count: 3),
             lastSentimentLabel: SentimentLabel.getRandom(),
             firstDateForConversation: Date.random(),

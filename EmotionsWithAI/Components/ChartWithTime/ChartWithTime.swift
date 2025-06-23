@@ -36,15 +36,15 @@ struct ChartWithTime: View {
             }
         }
         .chartYScale(domain: 0...100)
-//        .chartForegroundStyleScale([
-//            "Anger": .red,
-//            "Disgust": .green,
-//            "Fear": .blue,
-//            "Joy": .yellow,
-//            "Neutral": .gray,
-//            "Sadness": .purple,
-//            "Suprise": .brown
-//        ])
+        .chartForegroundStyleScale([
+            "Anger": .red,
+            "Disgust": .green,
+            "Fear": .blue,
+            "Joy": .yellow,
+            "Neutral": .gray,
+            "Sadness": .purple,
+            "Suprise": .brown
+        ])
         .chartXScale(domain: 1...daysInCurrentMonth, range: .plotDimension(startPadding: 8, endPadding: 16))
         .chartXAxis {
             AxisMarks(values: [1,6,11,16,21,26]) { value in

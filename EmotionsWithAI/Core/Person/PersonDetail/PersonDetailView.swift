@@ -25,27 +25,28 @@ struct PersonDetailView: View {
             case .loading:
                 progressView
             case .loaded:
-                NavigationStack {
-                    mainContent
-                        .navigationTitle(navigationBarTitle)
-                        .navigationBarTitleDisplayMode(.inline)
-                        .navigationDestination(isPresented: $selectedCalendarView) {
-                            CalendarView(
-                                viewModel: CalendarViewModel(
-                                    container: container,
-                                    personDetail: viewModel.personDetail!,
-                                    filter: calendarFilter)
-                                )
-                        }
-                }
+                
+                mainContent
+                    .navigationTitle(navigationBarTitle)
+                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationDestination(isPresented: $selectedCalendarView) {
+                        let calendarViewModel = CalendarViewModel(
+                            container: container,
+                            personDetail: viewModel.personDetail!)
+                        calendarViewModel.filter = calendarFilter
+                        return CalendarView(viewModel: calendarViewModel)
+                        .toolbarVisibility(.hidden, for: .tabBar)
+                    }
+                
             case .failed(let string):
                 errorView(errorMessage: string)
             }
         }
+        .ignoresSafeArea(.container, edges: .bottom)
         .task {
             await viewModel.load(person: person)
         }
-
+        
     }
     
     private var navigationBarTitle: String {
@@ -90,7 +91,7 @@ struct PersonDetailView: View {
                 startConversationDateView
                 messageCountView
             }
-
+            
         }
         .padding()
     }
@@ -107,7 +108,6 @@ struct PersonDetailView: View {
                 .aspectRatio(1.0, contentMode: .fit)
                 .frame(width: 150, height: 150)
                 .clipShape(Circle())
-                
         }
         .chartAngleSelection(value: $selectedCount)
         .onChange(of: selectedCount) { oldValue, newValue in
@@ -143,9 +143,9 @@ struct PersonDetailView: View {
     }
     
     private var chartDetail: some View {
-
+        
         ExpandableCell {
-                Text("Detail")
+            Text("Detail")
                 .foregroundStyle(UIColor.label.toColor)
         } content: {
             VStack {
@@ -185,7 +185,7 @@ struct PersonDetailView: View {
                 Text("Last Feeling For You")
                     .foregroundStyle(UIColor.label.toColor)
                 Spacer()
-                Text(viewModel.personDetail!.lastSentimentLabel.getStringValue)
+                Text(viewModel.personDetail!.lastSentimentLabel?.getStringValue ?? "NOT FOUND")
                     .foregroundStyle(UIColor.label.toColor)
                     .bold()
             }
@@ -242,5 +242,5 @@ struct PersonDetailView: View {
         )
     )
     .previewEnvironmentObject()
-        
+    
 }

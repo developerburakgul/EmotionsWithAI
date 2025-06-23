@@ -4,6 +4,16 @@
     "" : {
 
     },
+    "%@/%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@/%2$@"
+          }
+        }
+      }
+    },
     "%lld" : {
       "localizations" : {
         "en" : {
@@ -36,6 +46,9 @@
         }
       }
     },
+    "Analysis Complete" : {
+
+    },
     "Analysis Count" : {
 
     },
@@ -62,6 +75,24 @@
           }
         }
       }
+    },
+    "Back" : {
+
+    },
+    "Back to Onboarding" : {
+
+    },
+    "Before we begin, please enter your name." : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Continue" : {
+
+    },
+    "Continue to main app" : {
+
     },
     "Conversation Start Date " : {
 
@@ -92,6 +123,9 @@
     "Detail" : {
 
     },
+    "Detail for %@" : {
+
+    },
     "Disgust" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -102,6 +136,15 @@
           }
         }
       }
+    },
+    "Dominant Emotion" : {
+
+    },
+    "Done" : {
+
+    },
+    "Emotions" : {
+
     },
     "Enter Name ..." : {
       "localizations" : {
@@ -122,6 +165,9 @@
           }
         }
       }
+    },
+    "Error" : {
+
     },
     "Export" : {
       "localizations" : {
@@ -146,6 +192,12 @@
           }
         }
       }
+    },
+    "Feeling %@" : {
+
+    },
+    "Get Started" : {
+
     },
     "Home" : {
       "localizations" : {
@@ -197,6 +249,9 @@
     "Last Feeling For You" : {
 
     },
+    "Let's Get Started!" : {
+
+    },
     "Loading..." : {
 
     },
@@ -205,6 +260,16 @@
     },
     "Message Count " : {
 
+    },
+    "Most Emotion is %@ for %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Most Emotion is %1$@ for %2$@"
+          }
+        }
+      }
     },
     "Neutral" : {
       "extractionState" : "manual",
@@ -227,6 +292,18 @@
         }
       }
     },
+    "Next Page" : {
+
+    },
+    "No emotion data available" : {
+
+    },
+    "No Emotional Messages Detected" : {
+
+    },
+    "No sentiments detected" : {
+
+    },
     "Notifications" : {
       "localizations" : {
         "tr" : {
@@ -236,6 +313,9 @@
           }
         }
       }
+    },
+    "OK" : {
+
     },
     "Person" : {
       "localizations" : {
@@ -253,6 +333,12 @@
         }
       }
     },
+    "Person Detail" : {
+
+    },
+    "Please enter a valid name." : {
+
+    },
     "Retry" : {
 
     },
@@ -266,6 +352,9 @@
           }
         }
       }
+    },
+    "Save" : {
+
     },
     "Sentiment" : {
 
@@ -281,6 +370,9 @@
       }
     },
     "Sentiment Label" : {
+
+    },
+    "Sentiments Breakdown" : {
 
     },
     "Settings" : {
@@ -300,6 +392,15 @@
       }
     },
     "Show in Calendar" : {
+
+    },
+    "Since %@" : {
+
+    },
+    "Skip" : {
+
+    },
+    "Skip Onboarding" : {
 
     },
     "Start Analyze" : {
@@ -323,7 +424,11 @@
         }
       }
     },
+    "The Most Emotion On This Month %@" : {
+
+    },
     "The Most Emotion On This Month is %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "tr" : {
           "stringUnit" : {
@@ -332,6 +437,12 @@
           }
         }
       }
+    },
+    "We couldn’t find enough expressive messages with %@. Try selecting another conversation or wait for more messages." : {
+
+    },
+    "Your name" : {
+
     }
   },
   "version" : "1.0"

@@ -12,6 +12,7 @@ final class PersonViewModel: ObservableObject {
     private var persons: [Person]
     @Published var shownPersons: [Person]
     @Published var selectedPerson: Person? = nil
+    @Published var isLoadingPersons: Bool = true
     
     let personManager: PersonManager
     
@@ -40,9 +41,11 @@ final class PersonViewModel: ObservableObject {
     }
     
     func loadPersons() async {
+        isLoadingPersons = true
         do {
             persons = try personManager.fetchAllPersons()
             self.shownPersons = persons
+            isLoadingPersons = false
         } catch  {
             print("Error: \(error)")
         }

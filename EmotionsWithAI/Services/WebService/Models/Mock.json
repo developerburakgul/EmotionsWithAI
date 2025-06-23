@@ -1,0 +1,1168 @@
+{
+    "success": true,
+    "data": {
+        "participants": {
+            "Nizamet Özkan": {
+                "user_info": {
+                    "name": "Nizamet Özkan"
+                },
+                "analysis_summary": {
+                    "total_messages": 16
+                },
+                "messages": [
+                    {
+                        "sender": "Nizamet Özkan",
+                        "start_time": "2025-03-28T17:48:38Z",
+                        "end_time": "2025-03-28T17:48:38Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.012325378134846687
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.0013969340361654758
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.04440321773290634
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.19774778187274933
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.5168649554252625
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.019838746637105942
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.2074229121208191
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Nizamet Özkan",
+                        "start_time": "2025-04-03T18:17:47Z",
+                        "end_time": "2025-04-03T18:17:47Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.015288036316633224
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.017719069495797157
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.0068052480928599834
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.5106095671653748
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.30278968811035156
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.07858561724424362
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.06820275634527206
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Nizamet Özkan",
+                        "start_time": "2025-04-03T18:29:57Z",
+                        "end_time": "2025-04-03T18:29:57Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.0270086582750082
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.056293126195669174
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.020180512219667435
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.08868808299303055
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.33198049664497375
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.31338900327682495
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.16246014833450317
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Nizamet Özkan",
+                        "start_time": "2025-04-03T18:32:35Z",
+                        "end_time": "2025-04-03T18:32:35Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.003919892944395542
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.0039821770042181015
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.007129569537937641
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.13278374075889587
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.804386556148529
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.014323332346975803
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.03347473964095116
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Nizamet Özkan",
+                        "start_time": "2025-04-03T18:33:20Z",
+                        "end_time": "2025-04-03T18:33:20Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.006328957621008158
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.008116237819194794
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.007133936043828726
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.012386706657707691
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.8620809316635132
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.059151604771614075
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.04480154067277908
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Nizamet Özkan",
+                        "start_time": "2025-04-25T18:28:54Z",
+                        "end_time": "2025-04-25T18:28:54Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.016348140314221382
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.04148844629526138
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.017772020772099495
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.01914290338754654
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.822406530380249
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.06872420012950897
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.014117753133177757
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Nizamet Özkan",
+                        "start_time": "2025-05-01T18:18:18Z",
+                        "end_time": "2025-05-01T18:18:18Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.01623613014817238
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.008839701302349567
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.0026847098488360643
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.4379071593284607
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.29210078716278076
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.10215619206428528
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.14007531106472015
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Nizamet Özkan",
+                        "start_time": "2025-05-01T18:20:38Z",
+                        "end_time": "2025-05-01T18:20:42Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.017391612753272057
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.011645699851214886
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.005523559637367725
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.034779369831085205
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.6991676688194275
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.04409186169505119
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.1874001920223236
+                                }
+                            ]
+                        },
+                        "messageCount": 2
+                    },
+                    {
+                        "sender": "Nizamet Özkan",
+                        "start_time": "2025-05-01T19:06:22Z",
+                        "end_time": "2025-05-01T19:06:22Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.017287224531173706
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.005016054026782513
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.012443692423403263
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.15549805760383606
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.5970691442489624
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.060136161744594574
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.152549609541893
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Nizamet Özkan",
+                        "start_time": "2025-05-01T19:06:54Z",
+                        "end_time": "2025-05-01T19:06:54Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.0070237936452031136
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.004918605089187622
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.0020524202845990658
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.006656805519014597
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.8993624448776245
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.01676606573164463
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.06321980804204941
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Nizamet Özkan",
+                        "start_time": "2025-05-19T16:50:39Z",
+                        "end_time": "2025-05-19T16:50:39Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.03720661252737045
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.06895846128463745
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.014917203225195408
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.007586148101836443
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.7504792809486389
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.10934539139270782
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.011506914161145687
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Nizamet Özkan",
+                        "start_time": "2025-05-19T16:50:51Z",
+                        "end_time": "2025-05-19T16:50:52Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.016137609258294106
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.006853082682937384
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.0011446039425209165
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.7910525798797607
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.13832540810108185
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.014241241849958897
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.03224552050232887
+                                }
+                            ]
+                        },
+                        "messageCount": 2
+                    },
+                    {
+                        "sender": "Nizamet Özkan",
+                        "start_time": "2025-05-19T16:51:34Z",
+                        "end_time": "2025-05-19T16:51:34Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.1338290274143219
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.17768537998199463
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.023824471980333328
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.12195216864347458
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.445899099111557
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.048755720257759094
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.04805409535765648
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Nizamet Özkan",
+                        "start_time": "2025-05-19T16:51:53Z",
+                        "end_time": "2025-05-19T16:51:53Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.019142797216773033
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.01616981253027916
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.008224443532526493
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.015970010310411453
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.8233112692832947
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.03063364326953888
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.08654801547527313
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Nizamet Özkan",
+                        "start_time": "2025-05-19T16:52:47Z",
+                        "end_time": "2025-05-19T16:52:49Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.029815293848514557
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.017167365178465843
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.00393682112917304
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.03406401351094246
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.7035291194915771
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.02932223305106163
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.18216514587402344
+                                }
+                            ]
+                        },
+                        "messageCount": 2
+                    },
+                    {
+                        "sender": "Nizamet Özkan",
+                        "start_time": "2025-05-25T19:07:01Z",
+                        "end_time": "2025-05-25T19:07:08Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.016515137627720833
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.016309989616274834
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.016934048384428024
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.2525289058685303
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.48058387637138367
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.09176647663116455
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.1253616362810135
+                                }
+                            ]
+                        },
+                        "messageCount": 2
+                    }
+                ]
+            },
+            "Burak Gül": {
+                "user_info": {
+                    "name": "Burak Gül"
+                },
+                "analysis_summary": {
+                    "total_messages": 14
+                },
+                "messages": [
+                    {
+                        "sender": "Burak Gül",
+                        "start_time": "2025-03-13T21:46:54Z",
+                        "end_time": "2025-03-13T21:47:54Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.08078868687152863
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.042767252773046494
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.09217602759599686
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.01461879163980484
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.6728302240371704
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.05128341168165207
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.045535534620285034
+                                }
+                            ]
+                        },
+                        "messageCount": 2
+                    },
+                    {
+                        "sender": "Burak Gül",
+                        "start_time": "2025-03-28T17:53:41Z",
+                        "end_time": "2025-03-28T17:53:41Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.03148273751139641
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.010171939618885517
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.03482554107904434
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.0121831139549613
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.8094012141227722
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.026224961504340172
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.0757104828953743
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Burak Gül",
+                        "start_time": "2025-04-03T18:32:14Z",
+                        "end_time": "2025-04-03T18:32:14Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.011255535297095776
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.011920752935111523
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.02144528552889824
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.046516332775354385
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.7037101984024048
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.06522370874881744
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.1399281769990921
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Burak Gül",
+                        "start_time": "2025-04-03T18:32:54Z",
+                        "end_time": "2025-04-03T18:33:04Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.07317287474870682
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.062142886221408844
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.05842725187540054
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.019044626504182816
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.682875394821167
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.04006626456975937
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.06427071988582611
+                                }
+                            ]
+                        },
+                        "messageCount": 2
+                    },
+                    {
+                        "sender": "Burak Gül",
+                        "start_time": "2025-04-03T18:34:19Z",
+                        "end_time": "2025-04-03T18:34:19Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.08285011351108551
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.06001057103276253
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.17852698266506195
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.037937723100185394
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.4761357307434082
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.08059500902891159
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.08394388109445572
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Burak Gül",
+                        "start_time": "2025-04-25T20:11:28Z",
+                        "end_time": "2025-04-25T20:11:28Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.016093827784061432
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.014202183112502098
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.014341214671730995
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.0238376185297966
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.8052583336830139
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.02388893812894821
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.10237794369459152
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Burak Gül",
+                        "start_time": "2025-05-01T18:19:53Z",
+                        "end_time": "2025-05-01T18:19:53Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.010113050229847431
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.012316616252064705
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.01139938086271286
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.03646142780780792
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.8215534687042236
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.05015440657734871
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.058001577854156494
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Burak Gül",
+                        "start_time": "2025-05-01T19:06:50Z",
+                        "end_time": "2025-05-01T19:06:50Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.07793690264225006
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.4450579583644867
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.1147507056593895
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.07919887453317642
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.21579357981681824
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.05361012741923332
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.013651912100613117
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Burak Gül",
+                        "start_time": "2025-05-19T16:50:47Z",
+                        "end_time": "2025-05-19T16:50:47Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.006012488156557083
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.006449796725064516
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.00393720855936408
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.01011731382459402
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.9221368432044983
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.014306292869150639
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.03704007342457771
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Burak Gül",
+                        "start_time": "2025-05-19T16:51:22Z",
+                        "end_time": "2025-05-19T16:51:23Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.1039898693561554
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.06508416682481766
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.1107211634516716
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.01929970644414425
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.580356240272522
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.07264189422130585
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.047906968742609024
+                                }
+                            ]
+                        },
+                        "messageCount": 2
+                    },
+                    {
+                        "sender": "Burak Gül",
+                        "start_time": "2025-05-19T16:51:43Z",
+                        "end_time": "2025-05-19T16:51:50Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.030032262206077576
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.033593811094760895
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.03708677738904953
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.04589322581887245
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.67392897605896
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.07949362695217133
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.09997137635946274
+                                }
+                            ]
+                        },
+                        "messageCount": 3
+                    },
+                    {
+                        "sender": "Burak Gül",
+                        "start_time": "2025-05-19T16:52:08Z",
+                        "end_time": "2025-05-19T16:52:08Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.026699135079979897
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.019774721935391426
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.005903055891394615
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.004439894109964371
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.8230821490287781
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.024823445826768875
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.09527762979269028
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    },
+                    {
+                        "sender": "Burak Gül",
+                        "start_time": "2025-05-19T16:53:07Z",
+                        "end_time": "2025-05-19T16:53:11Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.03813531622290611
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.03250414878129959
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.006966009270399809
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.026118239387869835
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.8539415597915649
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.02945430390536785
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.012880483642220497
+                                }
+                            ]
+                        },
+                        "messageCount": 2
+                    },
+                    {
+                        "sender": "Burak Gül",
+                        "start_time": "2025-05-25T19:06:53Z",
+                        "end_time": "2025-05-25T19:06:53Z",
+                        "emotion": {
+                            "sentiments": [
+                                {
+                                    "label": "anger",
+                                    "score": 0.07407812029123306
+                                },
+                                {
+                                    "label": "disgust",
+                                    "score": 0.028067072853446007
+                                },
+                                {
+                                    "label": "fear",
+                                    "score": 0.10771104693412781
+                                },
+                                {
+                                    "label": "joy",
+                                    "score": 0.029860936105251312
+                                },
+                                {
+                                    "label": "neutral",
+                                    "score": 0.43278640508651733
+                                },
+                                {
+                                    "label": "sadness",
+                                    "score": 0.135173037648201
+                                },
+                                {
+                                    "label": "surprise",
+                                    "score": 0.19232343137264252
+                                }
+                            ]
+                        },
+                        "messageCount": 1
+                    }
+                ]
+            }
+        }
+    },
+    "timestamp": "2025-06-22T06:47:49Z"
+}

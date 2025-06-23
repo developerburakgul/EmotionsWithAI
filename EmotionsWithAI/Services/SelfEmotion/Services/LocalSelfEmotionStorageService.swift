@@ -11,7 +11,7 @@ import SwiftData
 
 @MainActor
 protocol LocalSelfEmotionStorageServiceProtocol {
-    func fetchSelfUserEntity() throws(LocalSelfEmotionStorageError) -> SelfUserEntity
+    func fetchSelfUserEntity(id: UUID) throws(LocalSelfEmotionStorageError) -> SelfUserEntity
     func createSelfUserEntity(_ selfUserEntity: SelfUserEntity) throws(LocalSelfEmotionStorageError)
     func deleteSelfUserEntity(_ selfUserEntity: SelfUserEntity) throws(LocalSelfEmotionStorageError)
     
@@ -31,12 +31,20 @@ struct LocalSelfEmotionStorageService: LocalSelfEmotionStorageServiceProtocol {
         self.container = SwiftDataManager.shared.container
     }
     
-    func fetchSelfUserEntity() throws(LocalSelfEmotionStorageError) -> SelfUserEntity {
+    func fetchSelfUserEntity(id: UUID) throws(LocalSelfEmotionStorageError) -> SelfUserEntity {
+        let localID = id
+        let descriptor = FetchDescriptor<SelfUserEntity>(
+            predicate: #Predicate { $0.id == localID }
+        )
+        
         do {
-            //MARK: - TODO
-            return SelfUserEntity(name: "Burak", lastSentimentLabel: .anger)
-        } catch  {
-            throw .notFoundSelfUserEntity
+            let results = try mainContext.fetch(descriptor)
+            guard let entity = results.first else {
+                throw LocalSelfEmotionStorageError.notFoundSelfUserEntity
+            }
+            return entity
+        } catch {
+            throw LocalSelfEmotionStorageError.notFoundSelfUserEntity
         }
     }
     
@@ -61,7 +69,11 @@ struct LocalSelfEmotionStorageService: LocalSelfEmotionStorageServiceProtocol {
     }
     
     func updateSelfUserEntity(_ selfUserEntity: SelfUserEntity) throws(LocalSelfEmotionStorageError) {
-        //MARK: - TODO
+        do {
+            try mainContext.save()
+        }catch {
+            throw .notUpdatedSelfUserEntity
+        }
     }
 }
 
@@ -69,6 +81,7 @@ enum LocalSelfEmotionStorageError: String, LocalizedError {
     case notFoundSelfUserEntity
     case notCreatedSelfUserEntity
     case notDeletedSelfUserEntity
+    case notUpdatedSelfUserEntity
     
     var localizedDescription: String {
         return self.rawValue

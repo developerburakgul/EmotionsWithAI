@@ -12,40 +12,95 @@ import MBWebService
 final class AnalyzeManager {
     
     private let webService: MBWebServiceProtocol
-    
-    init(webService: MBWebServiceProtocol) {
+    private let userManager: UserManager
+    init(webService: MBWebServiceProtocol, userManager: UserManager) {
         self.webService = webService
+        self.userManager = userManager
     }
     
-    func analyzeWhatsappChat(text: String) async throws -> ApiResponseModel<WhatsappAnalysisResponseModel> {
-        let defaultHttpHeader = HttpHeader(
-            headers: [
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            ]
-        )
-        let wpRequest: WhatsappTextRequest = .init(text: text)
+    func analyzeWhatsappChat(text: String) async throws -> WhatsappAnalysisResponseModel {
+        let wpRequest: WhatsappTextRequestModel = .init(text: text)
         let textData = try JSONEncoder().encode(wpRequest)
         let data =  try await webService.fethcData(
             urlString: "http://127.0.0.1:8000/api/v1/analyze/whatsapp",
             queryItems: nil,
-            header: defaultHttpHeader,
+            header: .defaultHttpHeader,
             method: .POST,
             body: textData,
-            checkStatusCode: false
+            checkStatusCode: false,
+            timeoutInterval: 120
         )
         let decoder = JSONDecoder()
 
-        let formatter = DateFormatter()
-//        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss" // Zaman dilimi yok
-//        formatter.locale = Locale(identifier: "en_US_POSIX")
-//        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        let _ = DateFormatter()
         decoder.dateDecodingStrategy = .iso8601
+        let response = try decoder.decode(ApiResponseModel<WhatsappAnalysisResponseModel>.self, from: data)
+        if response.success {
+            userManager.increaseRequestCount()
+            guard let data = response.data else {
+                throw GenericError.detail("Couldn't find data on \(#function)")
+            }
+            return data
+        }else {
+            throw GenericError.detail("Response failed \(#function)")
+        }
         
         
+    }
+    
+    func getMaxInputSize() async throws -> Int {
         
-        let returnData = try decoder.decode(ApiResponseModel<WhatsappAnalysisResponseModel>.self, from: data)
-        return returnData
+        let data = try await webService.fethcData(
+            urlString: "http://127.0.0.1:8000/api/v1/model/max-input-size",
+            queryItems: nil,
+            header: .defaultHttpHeader,
+            method: .GET,
+            body: nil,
+            checkStatusCode: false,
+            timeoutInterval: 60
+        )
+        
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        let decoded = try decoder.decode(ApiResponseModel<MaxInputSizeData>.self, from: data)
+        
+        if decoded.success {
+            guard let data = decoded.data else {
+                throw URLError(.badServerResponse)
+            }
+            return Int(data.approx_size_kb)
+        }else {
+            throw GenericError.detail(decoded.error?.message ?? "\(#function) error")
+        }
+    }
+    
+    func analyzeOneTime(text: String) async throws -> Emotion {
+        let oneTimeRequest: OneTimeTextRequestModel = .init(text: text)
+        let textData = try JSONEncoder().encode(oneTimeRequest)
+        let data = try await webService.fethcData(
+            urlString: "http://127.0.0.1:8000/api/v1/analyze/one-time",
+            queryItems: nil,
+            header: .defaultHttpHeader,
+            method: .POST,
+            body: textData,
+            checkStatusCode: false,
+            timeoutInterval: 60
+        )
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        let decoded = try decoder.decode(ApiResponseModel<EmotionModel>.self, from: data)
+        
+       
+        if decoded.success {
+            guard let data = decoded.data else {
+                throw GenericError.detail("Couldn't find data on \(#function)")
+            }
+            return data.convertToEmotion()
+        }else {
+            throw GenericError.detail("Response failed \(#function)")
+        }
     }
 
 }
+
+

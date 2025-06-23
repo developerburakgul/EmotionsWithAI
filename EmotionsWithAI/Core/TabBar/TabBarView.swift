@@ -13,7 +13,7 @@ struct TabBarView: View {
     @State private var selectedTab: Tabs = .home
     var body: some View {
         TabView(selection: $selectedTab) {
-            HomeView(viewModel: HomeViewModel(container: container))
+            HomeView(viewModel: HomeViewModel(container: container), coordinator: FileAnalysisCoordinator(container: container))
                 .tabItem {
                     Label(Tabs.home.title, systemImage: Tabs.home.systemImageName)
                 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Emotion: Codable {
+struct Emotion: Codable, Hashable {
     let sentiments: [Sentiment]
 }
 extension Emotion {

@@ -45,4 +45,5 @@ extension Date {
 enum DateFormat: String {
     case yyyyMMM = "yyyy MMM"
     case yyyyMMMM = "yyyy MMMM"
+    case ddMMMMyyyyHHmm = "dd MMMM yyyy HH:mm"
 }

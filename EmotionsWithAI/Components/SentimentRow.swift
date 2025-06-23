@@ -10,15 +10,23 @@ import SwiftUI
 struct SentimentRow: View {
     
     let sentiment: Sentiment
+    let showRightChevron: Bool
+    
+    init(sentiment: Sentiment, showRightChevron: Bool = true) {
+        self.sentiment = sentiment
+        self.showRightChevron = showRightChevron
+    }
     var body: some View {
         HStack(alignment: .center, spacing: 8) {
             Circle()
                 .fill(Color(sentiment.label.color))
-                .frame(width: 16, height: 16)
+                .frame(width: 12, height: 12)
             Text(sentiment.label.getStringValue)
             Text(sentiment.score.getPercentageString())
             Spacer()
-            Image(systemName: "chevron.right")
+            if showRightChevron {
+                Image(systemName: "chevron.right")
+            }
         }
     }
 }

@@ -31,9 +31,33 @@
 		23102B722DEC77010087076E /* EmotionsWithAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionsWithAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		232D719A2E07FD5E007B693D /* Exceptions for "EmotionsWithAI" folder in "EmotionsWithAI" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Services/WebService/Models/Mock.json,
+			);
+			target = 23102B712DEC77010087076E /* EmotionsWithAI */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		232D719B2E07FD5E007B693D /* Exceptions for "EmotionsWithAI" folder in "Compile Sources" phase from "EmotionsWithAI" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 23102B6E2DEC77010087076E /* Sources */;
+			membershipExceptions = (
+				Services/WebService/Models/Mock.json,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		23102B742DEC77010087076E /* EmotionsWithAI */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				232D719A2E07FD5E007B693D /* Exceptions for "EmotionsWithAI" folder in "EmotionsWithAI" target */,
+				232D719B2E07FD5E007B693D /* Exceptions for "EmotionsWithAI" folder in "Compile Sources" phase from "EmotionsWithAI" target */,
+			);
 			path = EmotionsWithAI;
 			sourceTree = "<group>";
 		};

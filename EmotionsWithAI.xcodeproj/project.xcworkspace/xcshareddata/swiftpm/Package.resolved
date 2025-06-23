@@ -1,5 +1,5 @@
 {
-  "originHash" : "8f2e3125b8a55e3af9fc54e3d8c61659d566bbdd2dfe8eb17f87448aba8fc969",
+  "originHash" : "fdfb34e99a7e0b1ccb298880af2b05bf4895121254b1206eb0f943086e423397",
   "pins" : [
     {
       "identity" : "lottie-ios",
@@ -16,7 +16,7 @@
       "location" : "https://github.com/developerburakgul/MBWebService",
       "state" : {
         "branch" : "development",
-        "revision" : "c2975efab60dd6189b1ab0cadd7e8730c9607dd9"
+        "revision" : "5d3f51d5d9bb2929c1f3732d9d27a057a60efd42"
       }
     },
     {

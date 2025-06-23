@@ -9,29 +9,36 @@ import SwiftData
 
 @Model
 class SelfUserEntity {
-    @Attribute(.unique) var id: UUID
+    @Attribute(.unique)
+    var id: UUID
     var name: String
-    var messages: [Message] = []
-    var analysisDates: [Date] = []
-    var lastSentimentLabel: SentimentLabel
-    
+    var messages: [SelfUserMessage]
+    var analysisDates: [Date]
+    var lastSentimentLabel: SentimentLabel?
+    //MARK: - last sentimen label should be optional
+
+    @Relationship(inverse: \UserEntity.selfUserEntity)
+    var userEntity: UserEntity?
+
     init(
-        id: UUID = .init(),
+        id: UUID = UUID(),
         name: String,
-        messages: [Message] = [],
+        messages: [SelfUserMessage] = [],
         analysisDates: [Date] = [],
-        lastSentimentLabel: SentimentLabel
+        lastSentimentLabel: SentimentLabel? = nil,
+        userEntity: UserEntity? = nil
     ) {
         self.id = id
         self.name = name
         self.messages = messages
         self.analysisDates = analysisDates
         self.lastSentimentLabel = lastSentimentLabel
+        self.userEntity = userEntity
     }
 }
 
 extension SelfUserEntity {
     func convertToSelfUser() -> SelfUser {
-        SelfEmotionHelper.convertSelfUserEntityToSelfUser(self) 
+        SelfEmotionManagerHelper.convertSelfUserEntityToSelfUser(self) 
     }
 }

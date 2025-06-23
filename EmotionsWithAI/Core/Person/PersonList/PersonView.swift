@@ -21,9 +21,8 @@ struct PersonView: View {
                     .navigationTitle("Person")
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationDestination(item: $viewModel.selectedPerson) { person in
-//                        Text(viewModel.selectedPerson?.name ?? "Burak")
-//                            .toolbarVisibility(.hidden, for: .tabBar)
                         PersonDetailView(viewModel: PersonDetailViewModel(container: container), person: person)
+                            .toolbarVisibility(.hidden, for: .tabBar)
                     }
             }
             .searchable(
@@ -45,9 +44,11 @@ struct PersonView: View {
     @ViewBuilder
     private var mainContent: some View {
         
-        if viewModel.shownPersons.isEmpty {
-            ContentUnavailableView("Data Not Found", systemImage: "text.magnifyingglass")
-        } else {
+        if viewModel.isLoadingPersons {
+               ProgressView("Loading...")
+           } else if viewModel.shownPersons.isEmpty {
+               ContentUnavailableView("Data Not Found", systemImage: "text.magnifyingglass")
+           }  else {
             ScrollView {
                
                 LazyVStack(spacing: 0) {

@@ -13,23 +13,26 @@ class UserEntity {
     @Attribute(.unique)
     var id: UUID
     var name: String
-    
-    init(
-        id: UUID = .init(),
-        name: String
-    ) {
+    var requestCount: Int
+
+    @Relationship
+    var selfUserEntity: SelfUserEntity?
+
+    init(id: UUID = UUID(), name: String, requestCount: Int = 0, selfUserEntity: SelfUserEntity? = nil) {
         self.id = id
         self.name = name
+        self.requestCount = requestCount
+        self.selfUserEntity = selfUserEntity
     }
 }
 
 extension UserEntity {
     func convertToUser() -> User {
-        return User(name: self.name)
+        User(id: self.id, name: self.name)
     }
 }
 
-
 struct User {
+    let id: UUID
     let name: String
 }

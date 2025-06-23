@@ -8,8 +8,18 @@
 import SwiftUI
 import Charts
 
+struct DetailView: View {
+    let personName: String
+    var body: some View {
+        Text("Detail for \(personName)")
+            .navigationTitle("Person Detail")
+    }
+}
+
 struct HomeView: View {
+    @EnvironmentObject var container: DependencyContainer
     @StateObject var viewModel: HomeViewModel
+    @StateObject var coordinator: FileAnalysisCoordinator
     @State var showFileImporter: Bool = false
     var body: some View {
         NavigationStack {
@@ -17,22 +27,50 @@ struct HomeView: View {
                 mainContent
                     .navigationTitle("Home")
                     .navigationBarTitleDisplayMode(.large)
+                
                 addButton
                     .fileImporter(
                         isPresented: $showFileImporter,
                         allowedContentTypes: [.zip]) { result in
                             do {
                                 let selectedFileURL = try result.get()
-                                viewModel.selectFile(selectedFileURL: selectedFileURL)
+                                coordinator.analyzeSelectedFile(selectedFileURL)
                             } catch {
                                 print(error)
                             }
                             
                         }
             }
+            .navigationDestination(isPresented: $coordinator.shouldNavigateResult) {
+//                if let vm = coordinator.analysisResultViewModel {
+//                       AnalysisResultView(viewModel: vm)
+//                           .toolbarVisibility(.hidden, for: .tabBar)
+//                   }
+                AnalysisResultView(
+                    viewModel: AnalysisResultViewModel(
+                        container: container,
+                        data: coordinator.analysisResult!
+                    )
+                )
+                .toolbarVisibility(.hidden, for: .tabBar)                
+            }
+            .navigationDestination(item: $coordinator.emptyAnalysisModel) { model in
+                EmptyAnalysisResultView(name: model.name, sinceDate: model.date) {
+                    coordinator.emptyAnalysisModel = nil
+                }
+                .toolbarVisibility(.hidden, for: .tabBar)   
+            }
         }
         .task {
+
             await viewModel.loadData()
+        }
+        .onChange(of: coordinator.shouldNavigateResult) { oldValue, newValue in
+            if !newValue {
+                Task {
+                    await viewModel.loadData()
+                }
+            }
         }
         
         
@@ -60,7 +98,7 @@ struct HomeView: View {
     }
     
     private var text: some View {
-        Text("The Most Emotion On This Month is \(viewModel.localizedMostEmotion)")
+        Text("The Most Emotion On This Month \(viewModel.selfUser?.mostEmotionLabel?.getStringValue ?? "")")
         .font(.body)
         .multilineTextAlignment(.center)
     }
@@ -71,7 +109,7 @@ struct HomeView: View {
                 HStack {
                     Text("Analysis Count")
                     Spacer()
-                    Text("\(viewModel.analysisDates.count)")
+                    Text("\(viewModel.selfUser?.analysisDates.count ?? 0)")
                 }
             } content: {
             }
@@ -85,7 +123,8 @@ struct HomeView: View {
             } content: {
                 VStack(alignment: .center, spacing: 4) {
                     ForEach(viewModel.analysisDates, id: \.self) { date in
-                        Text(date.format(with: .yyyyMMMM))
+                        AnalysisDateRow(date: date)
+                            .padding(4)
                     }
                 }
             }

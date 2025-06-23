@@ -21,7 +21,7 @@ final class SwiftDataManager: ObservableObject {
         do {
             let schema = Schema([
                 PersonEntity.self,
-                // buraya başka modelleri de eklersin
+                UserEntity.self
             ])
 
  

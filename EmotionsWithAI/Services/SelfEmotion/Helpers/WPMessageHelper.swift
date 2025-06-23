@@ -1,41 +1,11 @@
 //
-//  SelfEmotionHelper.swift
+//  WPMessageHelper.swift
 //  EmotionsWithAI
 //
-//  Created by Burak Gül on 20.06.2025.
+//  Created by Burak Gül on 22.06.2025.
 //
 
 import Foundation
-import ZIPFoundation
-
-struct SelfEmotionHelper {
-    static func convertSelfUserEntityToSelfUser(_ selfUserEntity: SelfUserEntity) -> SelfUser {
-        return SelfUser(
-            id: selfUserEntity.id,
-            chartDatas: Self.getChartDatas(from: selfUserEntity),
-            mostEmotionLabel: Self.getMostEmotionLabel(from: selfUserEntity),
-            analysisDates: selfUserEntity.analysisDates,
-            countOfMessages: Self.getCountOfMessages(from: selfUserEntity)
-        )
-    }
-    
-    private static func getChartDatas(from selfUserEntity: SelfUserEntity) -> [ChartData] {
-        //MARK: - TODO
-        return []
-    }
-    
-    private static func getMostEmotionLabel(from selfUserEntity: SelfUserEntity) -> SentimentLabel {
-        //MARK: - TODO
-        return .joy
-    }
-    
-    private static func getCountOfMessages(from selfUserEntity: SelfUserEntity) -> Int {
-        //MARK: - TODO
-        return 0
-    }
-}
-
-
 struct WPMessageHelper {
     static func getStringFormat(from fileURL: URL) throws -> String {
         let destinationURL = FileManager.default.temporaryDirectory.appendingPathComponent("ExtractedZip")
@@ -84,7 +54,7 @@ struct WPMessageHelper {
         return Array(participants).sorted()
     }
     
-    static func filterMessages(after cutoffDate: Date, from rawText: String) -> String {
+    static func filterMessages(after cutoffDate: Date?, from rawText: String) -> String {
         let lines = rawText.components(separatedBy: .newlines)
         
         let formatter = DateFormatter()
@@ -94,15 +64,27 @@ struct WPMessageHelper {
         var filteredLines: [String] = []
         
         for line in lines {
-            // Extract timestamp from "[...]" part
+            // Tarih etiketi yoksa doğrudan ekle (veya cutoffDate nil ise)
             guard let start = line.firstIndex(of: "["),
                   let end = line.firstIndex(of: "]") else {
+                if cutoffDate == nil {
+                    filteredLines.append(line)
+                }
                 continue
             }
 
-            let dateString = String(line[line.index(after: start)..<end]) // e.g. "14.03.2025, 00:46:54"
+            let dateString = String(line[line.index(after: start)..<end])
             
-            if let date = formatter.date(from: dateString), date >= cutoffDate {
+            // Tarih ayrıştırılamıyorsa, cutoffDate nil ise yine dahil et
+            if let date = formatter.date(from: dateString) {
+                if let cutoff = cutoffDate {
+                    if date > cutoff {
+                        filteredLines.append(line)
+                    }
+                } else {
+                    filteredLines.append(line)
+                }
+            } else if cutoffDate == nil {
                 filteredLines.append(line)
             }
         }
@@ -110,6 +92,27 @@ struct WPMessageHelper {
         return filteredLines.joined(separator: "\n")
     }
 
+    
+    static func compareDateString(with dateString: String, referenceDate: Date) -> Bool? {
+        // Giriş formatını tanımla: "[DD.MM.YYYY, HH:mm:ss]"
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "[dd.MM.yyyy, HH:mm:ss]"
+        inputFormatter.locale = Locale(identifier: "en_US_POSIX")
+        inputFormatter.timeZone = TimeZone(identifier: "Europe/Istanbul") // Türkiye zaman dilimi (+03:00)
+
+        // String'i Date'e çevir
+        guard let parsedDate = inputFormatter.date(from: dateString) else {
+            print("Hatalı tarih formatı: \(dateString)")
+            return nil
+        }
+
+        // Karşılaştırma: parsedDate > referenceDate
+        let isAfter = parsedDate > referenceDate
+        print("Parsed Date (\(parsedDate)): \(parsedDate.timeIntervalSinceReferenceDate)")
+        print("Reference Date (\(referenceDate)): \(referenceDate.timeIntervalSinceReferenceDate)")
+        print("Is \(parsedDate) after \(referenceDate)? \(isAfter)")
+        
+        return isAfter
+    }
+
 }
-
-

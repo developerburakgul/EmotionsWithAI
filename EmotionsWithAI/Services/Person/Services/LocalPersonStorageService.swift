@@ -46,28 +46,28 @@ struct LocalPersonStorageService: LocalPersonStorageServiceProtocol {
         }
     }
     
-    func findPersonEntity(from person: Person) throws(LocalPersonStorageError) -> PersonEntity {
+    func findPersonEntity(from person: Person) throws(LocalPersonStorageError) -> PersonEntity? {
         let descriptor = FetchDescriptor<PersonEntity>()
         do {
             let personEntities: [PersonEntity] = try mainContext.fetch(descriptor)
             let personEntity = personEntities.first { $0.id == person.id }
             
             guard let personEntity = personEntity else {
-                throw LocalPersonStorageError.notFoundPersonEntity
+                return nil
             }
             return personEntity
         } catch {
             throw LocalPersonStorageError.notFoundPersonEntity
         }
     }
-    func findPersonEntity(from personDetail: PersonDetail) throws(LocalPersonStorageError) -> PersonEntity {
+    func findPersonEntity(from personDetail: PersonDetail) throws(LocalPersonStorageError) -> PersonEntity? {
         let descriptor = FetchDescriptor<PersonEntity>()
         do {
             let personEntities: [PersonEntity] = try mainContext.fetch(descriptor)
             let personEntity = personEntities.first { $0.id == personDetail.id }
             
             guard let personEntity = personEntity else {
-                throw LocalPersonStorageError.notFoundPersonEntity
+                return nil
             }
             return personEntity
         } catch {
@@ -90,8 +90,8 @@ protocol LocalPersonStorageServiceProtocol {
     func fetchAllPersons() throws -> [PersonEntity]
     func createPersonEntity(_ personEntity: PersonEntity) throws(LocalPersonStorageError)
     func deletePersonEntity(_ personEntity: PersonEntity) throws(LocalPersonStorageError)
-    func findPersonEntity(from person: Person) throws(LocalPersonStorageError) -> PersonEntity
-    func findPersonEntity(from personDetail: PersonDetail) throws(LocalPersonStorageError) -> PersonEntity
+    func findPersonEntity(from person: Person) throws(LocalPersonStorageError) -> PersonEntity?
+    func findPersonEntity(from personDetail: PersonDetail) throws(LocalPersonStorageError) -> PersonEntity?
     func updatePersonEntity(_ personEntity: PersonEntity) throws(LocalPersonStorageError)
 }
 

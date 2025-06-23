@@ -39,11 +39,11 @@ final class PersonDetailViewModel: ObservableObject {
     
     var mostSentimentImageName: String {
         guard let detail = personDetail else { return "" }
-        return detail.mostSentiment.getImageName()
+        return detail.mostSentiment?.getImageName() ?? ""
     }
     
     var startConversationDateString: String {
-        personDetail?.firstDateForConversation.format(with: .yyyyMMM) ?? ""
+        personDetail?.firstDateForConversation?.format(with: .yyyyMMM) ?? ""
     }
     
     var messageCountString: String {

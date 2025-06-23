@@ -11,19 +11,22 @@ import SwiftData
 final class PersonEntity {
     @Attribute(.unique) public var id: UUID
     var name: String
-    var messages: [Message] = []
+    var messages: [PersonMessage] = []
     var analysisDates: [Date] = []
-    var lastSentimentLabel: SentimentLabel
-    var firstDateForConversation: Date
-    var lastDateForConversation: Date
+    var lastSentimentLabel: SentimentLabel? = nil
+    var firstDateForConversation: Date? = nil
+    var lastDateForConversation: Date? = nil
+    var dateForLastMessageForAnalysis: Date? = nil
     init(
         id: UUID = .init(),
         name: String,
-        messages: [Message] = [],
+        messages: [PersonMessage] = [],
         analysisDates: [Date] = [],
-        lastSentimentLabel: SentimentLabel = .neutral,
-        firstDateForConversation: Date = Date(),
-        lastDateForConversation: Date = Date()
+        lastSentimentLabel: SentimentLabel? = nil,
+        firstDateForConversation: Date? = nil,
+        lastDateForConversation: Date? = nil,
+        dateForLastMessageForAnalysis: Date? = nil
+        
     ) {
         self.id = id
         self.name = name
@@ -32,6 +35,7 @@ final class PersonEntity {
         self.lastSentimentLabel = lastSentimentLabel
         self.firstDateForConversation = firstDateForConversation
         self.lastDateForConversation = lastDateForConversation
+        self.dateForLastMessageForAnalysis = dateForLastMessageForAnalysis
     }
     
 

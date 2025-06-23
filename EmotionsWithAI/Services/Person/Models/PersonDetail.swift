@@ -10,23 +10,25 @@ struct PersonDetail {
     let id: UUID
     let name: String
     let sentiments: [Sentiment] // TODO : Convert to Emotion
-    let lastSentimentLabel: SentimentLabel
-    let firstDateForConversation: Date
-    let lastDateForConversation: Date
+    let lastSentimentLabel: SentimentLabel?
+    let firstDateForConversation: Date?
+    let lastDateForConversation: Date?
     let analysisCount: Int
     let messageCount: Int
-    let mostSentiment: Sentiment
+    let mostSentiment: Sentiment?
+    let dateForLastMessageForAnalysis: Date?
     
     init(
         id: UUID,
         name: String,
         sentiments: [Sentiment],
-        lastSentimentLabel: SentimentLabel,
-        firstDateForConversation: Date,
-        lastDateForConversation: Date,
-        analysisCount: Int,
-        messageCount: Int,
-        mostSentiment: Sentiment
+        lastSentimentLabel: SentimentLabel? = nil,
+        firstDateForConversation: Date? = nil,
+        lastDateForConversation: Date? = nil,
+        analysisCount: Int = 0,
+        messageCount: Int = 0,
+        mostSentiment: Sentiment? = nil,
+        dateForLastMessageForAnalysis: Date? = nil
     ) {
         self.id = id
         self.name = name
@@ -37,6 +39,7 @@ struct PersonDetail {
         self.analysisCount = analysisCount
         self.messageCount = messageCount
         self.mostSentiment = mostSentiment
+        self.dateForLastMessageForAnalysis = dateForLastMessageForAnalysis
     }
     
 }

@@ -52,14 +52,14 @@ final class CalendarViewModel: ObservableObject {
     private var calendarModels: [CalendarModels] = []
     private let personManager: PersonManager
     @Published var state: CalendarDetailState = .loading
-    private var filter: CalendarFilter = .none
+    @Published var filter: CalendarFilter = .none
     private let personDetail: PersonDetail
     var todayDate: Date = .now
     
-    init(container: DependencyContainer, personDetail: PersonDetail, filter: CalendarFilter = .sentimentLabel(.anger)) {
+    init(container: DependencyContainer, personDetail: PersonDetail) {
         self.personManager = container.resolve(PersonManager.self)!
-        self.filter = filter
         self.personDetail = personDetail
+        self.startDate = personDetail.firstDateForConversation ?? Date()
     }
     
     func getSentiment(for model: OBCalendar.DayModel) -> Sentiment? {
@@ -108,6 +108,7 @@ final class CalendarViewModel: ObservableObject {
             print("Filtered calendarModels: \(self.calendarModels)") // Filtrelenmiş veriyi kontrol et
             self.state = .loaded
             self.startDate = calendarModels.first?.date ?? .now // Güvenli unwrap
+            self.calendarRange = getCalendarDrawRange(from: self.startDate, to: .now )
         } catch {
             state = .failed(error.localizedDescription)
             print("Error: \(error)") // Hata detayını kontrol et
@@ -117,11 +118,25 @@ final class CalendarViewModel: ObservableObject {
     private func filter(calendarModels: [CalendarModels]) -> [CalendarModels]{
         switch filter {
         case .none:
-            return calendarModels
+            return calendarModels.sorted(by: { $0.date < $1.date })
         case .sentimentLabel(let sentimentLabel):
             return calendarModels.filter { calendarModel in
                 calendarModel.sentiment.label == sentimentLabel
-            }
+            }.sorted(by: { $0.date < $1.date })
         }
     }
+    
+    func getCalendarDrawRange(from start: Date, to end: Date) -> CalendarDrawRange {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day], from: start, to: end)
+        
+        let years = components.year ?? 0
+        let months = components.month ?? 0
+        let days = components.day ?? 0
+
+        let totalMonths = years * 12 + months + (days > 0 ? 1 : 0)
+
+        return .month(totalMonths)
+    }
+
 }

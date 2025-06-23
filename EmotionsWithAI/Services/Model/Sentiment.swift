@@ -23,14 +23,14 @@ struct Sentiment: Identifiable, Codable, Equatable, Hashable{
 
 
 
-enum SentimentLabel:Codable, CaseIterable, Equatable {
-    case anger
-    case disgust
-    case fear
-    case joy
-    case neutral
-    case sadness
-    case suprise
+enum SentimentLabel: String,Codable, CaseIterable, Equatable {
+    case anger = "anger"
+    case disgust = "disgust"
+    case fear = "fear"
+    case joy = "joy"
+    case neutral = "neutral"
+    case sadness =  "sadness"
+    case suprise = "surprise"
     
     var getStringValue: String {
         switch self {
@@ -67,6 +67,44 @@ enum SentimentLabel:Codable, CaseIterable, Equatable {
                 .blue
         case .suprise:
                 .pink
+        }
+    }
+    
+    func getImageName() -> String {
+        switch self {
+        case .anger:
+            "Anger"
+        case .disgust:
+            "Disgust"
+        case .fear:
+            "Fear"
+        case .joy:
+            "Joy"
+        case .neutral:
+            "squareImage"
+        case .sadness:
+            "Sadness"
+        case .suprise:
+            "squareImage"
+        }
+    }
+    
+    func getImageNameRemoveBacgkround() -> String {
+        switch self {
+        case .anger:
+            "AngerRemovedBackground"
+        case .disgust:
+            "DisgustRemovedBackground"
+        case .fear:
+            "FearRemovedBackground"
+        case .joy:
+            "JoyRemovedBackground"
+        case .neutral:
+            "squareImage"
+        case .sadness:
+            "SadnessRemovedBackground"
+        case .suprise:
+            "squareImage"
         }
     }
     

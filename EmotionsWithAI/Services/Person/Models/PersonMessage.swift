@@ -9,7 +9,10 @@ import Foundation
 import SwiftData
 
 @Model
-class Message {
+class PersonMessage {
+    @Relationship(inverse: \PersonEntity.messages)
+    var person: PersonEntity?
+    
     var startTime: Date
     var endTime: Date
     var emotion: Emotion
@@ -23,9 +26,9 @@ class Message {
     }
 }
 
-extension Message {
-    static func mock(startingFrom baseDate: Date, count: Int) -> [Message] {
-        var messages: [Message] = []
+extension PersonMessage {
+    static func mock(startingFrom baseDate: Date, count: Int) -> [PersonMessage] {
+        var messages: [PersonMessage] = []
         var currentStartDate = baseDate
 
 
@@ -39,7 +42,7 @@ extension Message {
             let messageCount = Int.random(in: 1...10)
 
             // Mesaj oluştur
-            let message = Message(
+            let message = PersonMessage(
                 startTime: currentStartDate,
                 endTime: endDate,
                 emotion: Emotion(sentiments: Sentiment.mock(7)),

@@ -10,7 +10,10 @@ import SwiftData
 
 @MainActor
 protocol LocalUserStorageServiceProtocol {
-    func fetchUser() throws(LocalUserStorageError) -> UserEntity
+    func fetchUser() throws(LocalUserStorageError) -> UserEntity?
+    func createUser(_ user: UserEntity) throws(LocalUserStorageError)
+    func deleteUser(_ user: UserEntity) throws(LocalUserStorageError)
+    func updateUserEntity(_ user: UserEntity) throws(LocalUserStorageError)
 }
 
 @MainActor
@@ -27,15 +30,59 @@ struct LocalUserStorageService: LocalUserStorageServiceProtocol {
         self.container = SwiftDataManager.shared.container
     }
     
-    func fetchUser() throws(LocalUserStorageError) -> UserEntity {
-        return UserEntity(name: "burak")
+    
+    func createUser(_ user: UserEntity) throws(LocalUserStorageError) {
+        mainContext.insert(user)
+        do {
+            try mainContext.save()
+        } catch  {
+            throw .notCreatedUserEntity
+        }
     }
+    
+    func fetchUser() throws(LocalUserStorageError) -> UserEntity? {
+        let descriptor = FetchDescriptor<UserEntity>()
+        do {
+            let userEntities: [UserEntity] = try mainContext.fetch(descriptor)
+            if userEntities.count != 1 {
+                return nil
+            }
+            let userEntity = userEntities[0]
+
+            return userEntity
+        } catch {
+            throw LocalUserStorageError.userEntityNotFound
+        }
+    }
+    
+    func deleteUser(_ user: UserEntity) throws(LocalUserStorageError) {
+        mainContext.delete(user)
+        
+        do {
+            try mainContext.save()
+        }catch {
+            throw .notDeletedUserEntity
+        }
+    }
+    
+    func updateUserEntity(_ user: UserEntity) throws(LocalUserStorageError) {
+        mainContext.insert(user)
+        
+        do {
+            try mainContext.save()
+        }catch {
+            throw .notDeletedUserEntity
+        }
+    }
+    
+
 }
 
 enum LocalUserStorageError: String, LocalizedError {
     case notFoundUserEntity
     case notCreatedUserEntity
     case notDeletedUserEntity
+    case userEntityNotFound
     
     var localizedDescription: String {
         return self.rawValue
