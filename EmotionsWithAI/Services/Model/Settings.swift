@@ -18,14 +18,11 @@ enum Language: Identifiable, CaseIterable{
     }
     
     case english
-    case turkish
     
     var languageModel: LanguageModel {
         switch self {
         case .english:
             return LanguageModel(name: "English", code: "en")
-        case .turkish:
-            return LanguageModel(name: "Türkçe", code: "tr")
         }
     }
 }

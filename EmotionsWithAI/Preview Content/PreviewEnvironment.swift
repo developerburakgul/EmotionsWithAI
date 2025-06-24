@@ -25,6 +25,7 @@ class DevPreview {
     let userManager: UserManager
     let analyzeManager: AnalyzeManager
     let webService: MBWebServiceProtocol
+    let storeKitService: StoreKitService
     
     var container: DependencyContainer {
         let container = DependencyContainer()
@@ -45,7 +46,8 @@ class DevPreview {
         let localUserStorageService: LocalUserStorageServiceProtocol = LocalUserStorageService()
         let localSelfEmotionStorageService: LocalSelfEmotionStorageServiceProtocol = LocalSelfEmotionStorageService()
         self.selfEmotionManager = SelfEmotionManager(localSelfEmotionStorageService: localSelfEmotionStorageService, localUserStorageService: localUserStorageService)
-        self.userManager = UserManager(localUserStorageService: localUserStorageService, localSelfEmotionStorageService: localSelfEmotionStorageService)
+        self.storeKitService = StoreKitService()
+        self.userManager = UserManager(localUserStorageService: localUserStorageService, localSelfEmotionStorageService: localSelfEmotionStorageService, storeKitService: storeKitService)
         
   
 

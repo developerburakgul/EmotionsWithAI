@@ -30,6 +30,9 @@
         }
       }
     },
+    "Active" : {
+
+    },
     "Analysis" : {
       "localizations" : {
         "en" : {
@@ -85,7 +88,16 @@
     "Before we begin, please enter your name." : {
 
     },
+    "By upgrading, you agree to our [Terms of Service](https://example.com/terms) and [Privacy Policy](https://example.com/privacy)." : {
+
+    },
     "Cancel" : {
+
+    },
+    "Choose Your Plan" : {
+
+    },
+    "Confirm Upgrade" : {
 
     },
     "Continue" : {
@@ -98,6 +110,7 @@
 
     },
     "Dark Mode" : {
+      "extractionState" : "stale",
       "localizations" : {
         "tr" : {
           "stringUnit" : {
@@ -179,6 +192,9 @@
         }
       }
     },
+    "Export user data" : {
+
+    },
     "Failed to load data" : {
 
     },
@@ -197,6 +213,12 @@
 
     },
     "Get Started" : {
+
+    },
+    "Get the full EmotionsWithAI experience" : {
+
+    },
+    "Go Premium" : {
 
     },
     "Home" : {
@@ -225,6 +247,9 @@
         }
       }
     },
+    "Import user data" : {
+
+    },
     "Joy" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -245,6 +270,9 @@
           }
         }
       }
+    },
+    "Language: %@" : {
+
     },
     "Last Feeling For You" : {
 
@@ -314,6 +342,9 @@
         }
       }
     },
+    "Notifications toggle" : {
+
+    },
     "OK" : {
 
     },
@@ -337,6 +368,21 @@
 
     },
     "Please enter a valid name." : {
+
+    },
+    "Premium" : {
+
+    },
+    "Premium Status" : {
+
+    },
+    "Processing..." : {
+
+    },
+    "Remaining Requests" : {
+
+    },
+    "Restore Purchases" : {
 
     },
     "Retry" : {
@@ -437,6 +483,21 @@
           }
         }
       }
+    },
+    "Total Requests" : {
+
+    },
+    "Unlock Premium" : {
+
+    },
+    "Usage Requests" : {
+
+    },
+    "User Information" : {
+
+    },
+    "Username" : {
+
     },
     "We couldn’t find enough expressive messages with %@. Try selecting another conversation or wait for more messages." : {
 

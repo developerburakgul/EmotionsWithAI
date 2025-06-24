@@ -50,7 +50,8 @@ struct Dependencies {
         let localSelfEmotionStorageService: LocalSelfEmotionStorageServiceProtocol = LocalSelfEmotionStorageService()
         
         let localUserStorageService: LocalUserStorageServiceProtocol = LocalUserStorageService()
-        let userManager = UserManager(localUserStorageService: localUserStorageService, localSelfEmotionStorageService: localSelfEmotionStorageService)
+        let storeKitService = StoreKitService()
+        let userManager = UserManager(localUserStorageService: localUserStorageService, localSelfEmotionStorageService: localSelfEmotionStorageService, storeKitService: storeKitService)
         
         let selfEmotionManager = SelfEmotionManager(localSelfEmotionStorageService: localSelfEmotionStorageService, localUserStorageService: localUserStorageService)
         

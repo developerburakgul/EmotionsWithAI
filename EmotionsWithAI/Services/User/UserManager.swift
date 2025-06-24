@@ -11,12 +11,15 @@ import Foundation
 final class UserManager {
     private let localUserStorageService: LocalUserStorageServiceProtocol
     private let localSelfEmotionStorageService: LocalSelfEmotionStorageServiceProtocol
+    private let storeKitService: StoreKitService
     init(
         localUserStorageService: LocalUserStorageServiceProtocol,
-        localSelfEmotionStorageService: LocalSelfEmotionStorageServiceProtocol
+        localSelfEmotionStorageService: LocalSelfEmotionStorageServiceProtocol,
+        storeKitService: StoreKitService
     ) {
         self.localUserStorageService = localUserStorageService
         self.localSelfEmotionStorageService = localSelfEmotionStorageService
+        self.storeKitService = storeKitService
     }
     
     func fetchUser() throws -> User? {
@@ -35,24 +38,21 @@ final class UserManager {
         //MARK: - todo
     }
     
-    func increaseRequestCount() {
-        do {
+    func increaseRequestCount() throws {
+        
             let user = try localUserStorageService.fetchUser()
             guard let user else { return  }
             
-           try localUserStorageService.updateUserEntity(
-                UserEntity(
-                    id: user.id,
-                    name: user.name,
-                    requestCount: user.requestCount + 1,
-                    selfUserEntity: user.selfUserEntity
-                )
-            )
+            user.requestCount += 1
             
-        } catch  {
-            
-        }
         
+        
+    }
+    
+    func upgradeToPremium() async throws {
+        // Simulate: In-app purchase
+        try await Task.sleep(for: .seconds(1))
+
     }
     
   
@@ -62,7 +62,13 @@ final class UserManager {
         do {
             let sharedID = UUID()  // Common ID
 
-            let user = UserEntity(id: sharedID, name: name,requestCount: 0, selfUserEntity: nil)
+            let user = UserEntity(
+                id: sharedID,
+                name: name,
+                requestCount: 0,
+                selfUserEntity: nil,
+                totalRequestCount: 10
+            )
             let selfUser = SelfUserEntity(
                 id: sharedID,
                 name: user.name,
@@ -82,5 +88,27 @@ final class UserManager {
         } catch {
             print("Kullanıcı oluşturma hatası: \(error)")
         }
+    }
+    
+    func exportUserData(to url: URL) async throws {
+        do {
+   
+        } catch {
+            print("Error exporting user data: \(error)")
+            throw error
+        }
+    }
+
+    func importUserData(from url: URL) async throws {
+        do {
+
+        } catch {
+            print("Error importing user data: \(error)")
+            throw error
+        }
+    }
+    
+    func restorePurchases() async throws {
+        
     }
 }
