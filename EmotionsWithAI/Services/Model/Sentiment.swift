@@ -47,7 +47,7 @@ enum SentimentLabel: String,Codable, CaseIterable, Equatable {
         case .sadness:
             "Sadness"
         case .suprise:
-            "Suprise"
+            "Surprise"
         }
     }
     
@@ -66,7 +66,7 @@ enum SentimentLabel: String,Codable, CaseIterable, Equatable {
         case .sadness:
                 .blue
         case .suprise:
-                .pink
+                .orange
         }
     }
     
@@ -81,11 +81,11 @@ enum SentimentLabel: String,Codable, CaseIterable, Equatable {
         case .joy:
             "Joy"
         case .neutral:
-            "squareImage"
+            "Neutral"
         case .sadness:
             "Sadness"
         case .suprise:
-            "squareImage"
+            "Surprise"
         }
     }
     
@@ -100,11 +100,11 @@ enum SentimentLabel: String,Codable, CaseIterable, Equatable {
         case .joy:
             "JoyRemovedBackground"
         case .neutral:
-            "squareImage"
+            "NeutralRemovedBackground"
         case .sadness:
             "SadnessRemovedBackground"
         case .suprise:
-            "squareImage"
+            "Surprise"
         }
     }
     
@@ -147,42 +147,42 @@ extension Sentiment {
         return returnArray
     }
     
-    func getImageName() -> String {
-        switch self.label {
-        case .anger:
-            "Anger"
-        case .disgust:
-            "Disgust"
-        case .fear:
-            "Fear"
-        case .joy:
-            "Joy"
-        case .neutral:
-            "squareImage"
-        case .sadness:
-            "Sadness"
-        case .suprise:
-            "squareImage"
-        }
-    }
-    
-    func getImageNameRemoveBacgkround() -> String {
-        switch self.label {
-        case .anger:
-            "AngerRemovedBackground"
-        case .disgust:
-            "DisgustRemovedBackground"
-        case .fear:
-            "FearRemovedBackground"
-        case .joy:
-            "JoyRemovedBackground"
-        case .neutral:
-            "squareImage"
-        case .sadness:
-            "SadnessRemovedBackground"
-        case .suprise:
-            "squareImage"
-        }
-    }
+//    func getImageName() -> String {
+//        switch self.label {
+//        case .anger:
+//            "Anger"
+//        case .disgust:
+//            "Disgust"
+//        case .fear:
+//            "Fear"
+//        case .joy:
+//            "Joy"
+//        case .neutral:
+//            "Neutrall"
+//        case .sadness:
+//            "Sadness"
+//        case .suprise:
+//            "Surprise"
+//        }
+//    }
+//    
+//    func getImageNameRemoveBacgkround() -> String {
+//        switch self.label {
+//        case .anger:
+//            "AngerRemovedBackground"
+//        case .disgust:
+//            "DisgustRemovedBackground"
+//        case .fear:
+//            "FearRemovedBackground"
+//        case .joy:
+//            "JoyRemovedBackground"
+//        case .neutral:
+//            "Neutrall"
+//        case .sadness:
+//            "SadnessRemovedBackground"
+//        case .suprise:
+//            "Surprise"
+//        }
+//    }
 }
 

@@ -57,12 +57,15 @@ struct PersonView: View {
                             title: person.name,
                             description: person.mostSentiment.label.getStringValue,
                             backgroundColor: Color.brown.opacity(0.2),
-                            image: Image(person.mostSentiment.getImageName())
+                            image: Image(person.mostSentiment.label.getImageNameRemoveBacgkround()),
+                            action: {
+                                viewModel.userClick(to: person)
+                            }
                         )
                         .padding(4)
-                        .onTapGesture {
-                            viewModel.userClick(to: person)
-                        }
+//                        .onTapGesture {
+//                            
+//                        }
                     }
                 }
                 .padding()

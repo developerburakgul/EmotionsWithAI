@@ -109,7 +109,7 @@ struct CalendarView: View {
         let sentiment = viewModel.getSentiment(for: model)
         return VStack(spacing: 4) {
             if let sentiment = sentiment {
-                Image(sentiment.getImageNameRemoveBacgkround())
+                Image(sentiment.label.getImageNameRemoveBacgkround())
                     .resizable()
                     .frame(width: 32, height: 32)
                     .clipShape(Circle())

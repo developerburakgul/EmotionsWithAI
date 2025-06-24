@@ -14,9 +14,16 @@ struct OnboardingItem: Hashable {
 }
 
 extension OnboardingItem {
-    static let mockData: [OnboardingItem] = [
-        .init(title: "Emotions With AI 1", description: "Lorem ipsum dolor sit amet 1", imageName: "squareImage"),
-        .init(title: "Emotions With AI 2", description: "Lorem ipsum dolor sit amet 2", imageName: "squareImage"),
-        .init(title: "Emotions With AI 3", description: "Lorem ipsum dolor sit amet 3", imageName: "squareImage"),
+    static let data: [OnboardingItem] = [
+        .init(title: "Step 1", description: "Open Whatsapp", imageName: "Onboarding1"),
+        .init(title: "Step 2", description: "Select Conversation", imageName: "Onboarding2"),
+        .init(title: "Step 3", description: "Click Name Of Person", imageName: "Onboarding3"),
+        .init(title: "Step 4", description: "Scroll Down", imageName: "Onboarding4"),
+        .init(title: "Step 5", description: "Click Export Chat", imageName: "Onboarding5"),
+        .init(title: "Step 6", description: "Select Without media", imageName: "Onboarding6"),
+        .init(title: "Step 7", description: "Select Save to Files", imageName: "Onboarding7"),
+        .init(title: "Step 8", description: "Click Green Circle", imageName: "Onboarding8")
     ]
+    
+    static let Onboarding9: OnboardingItem = .init(title: "Last Step", description: "Enter yourself username", imageName: "Onboarding9")
 }

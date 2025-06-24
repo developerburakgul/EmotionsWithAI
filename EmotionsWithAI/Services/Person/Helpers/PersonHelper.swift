@@ -25,7 +25,7 @@ public struct PersonHelper {
         let personDetail = PersonDetail(
             id: personEntity.id,
             name: personEntity.name,
-            sentiments: Self.getSentiments(from: personEntity),
+            sentiments: Self.getDominantSentimentRatios(from: personEntity),
             lastSentimentLabel: Self.getLastSentimentLabel(from: personEntity),
             firstDateForConversation: Self.getFirstDateForConversation(from: personEntity),
             lastDateForConversation: personEntity.lastDateForConversation,
@@ -84,50 +84,50 @@ public struct PersonHelper {
         return Sentiment(label: mostCommonLabel, score: averageScore)
     }
     
-    private static func getSentiments(from personEntity: PersonEntity) -> [Sentiment] {
-        struct SentimentCount {
-            var sentimentScore: Double = 0.0
-            var count: Int = 0
-        }
+    // private static func getSentiments(from personEntity: PersonEntity) -> [Sentiment] {
+    //     struct SentimentCount {
+    //         var sentimentScore: Double = 0.0
+    //         var count: Int = 0
+    //     }
         
-        func createSentiment(label: SentimentLabel) -> Sentiment {
-            let sentimentCount = sentimentsDictionary[label]!
-            guard sentimentCount.count > 0 else {
-                return Sentiment(label: label, score: 0)
-            }
-            return Sentiment(
-                label: label,
-                score: sentimentCount.sentimentScore / Double(sentimentCount.count)
-            )
-        }
-        var sentimentsDictionary: [SentimentLabel: SentimentCount] = [
-            .anger: SentimentCount(),
-            .disgust: SentimentCount(),
-            .fear: SentimentCount(),
-            .joy: SentimentCount(),
-            .sadness: SentimentCount(),
-            .neutral: SentimentCount(),
-            .suprise: SentimentCount()
-        ]
-        for message in personEntity.messages {
-            let sentiment = message.emotion.getMainSentiment()
-            sentimentsDictionary[sentiment.label]!.count += 1
-            sentimentsDictionary[sentiment.label]!.sentimentScore += sentiment.score
-        }
+    //     func createSentiment(label: SentimentLabel) -> Sentiment {
+    //         let sentimentCount = sentimentsDictionary[label]!
+    //         guard sentimentCount.count > 0 else {
+    //             return Sentiment(label: label, score: 0)
+    //         }
+    //         return Sentiment(
+    //             label: label,
+    //             score: sentimentCount.sentimentScore / Double(sentimentCount.count)
+    //         )
+    //     }
+    //     var sentimentsDictionary: [SentimentLabel: SentimentCount] = [
+    //         .anger: SentimentCount(),
+    //         .disgust: SentimentCount(),
+    //         .fear: SentimentCount(),
+    //         .joy: SentimentCount(),
+    //         .sadness: SentimentCount(),
+    //         .neutral: SentimentCount(),
+    //         .suprise: SentimentCount()
+    //     ]
+    //     for message in personEntity.messages {
+    //         let sentiment = message.emotion.getMainSentiment()
+    //         sentimentsDictionary[sentiment.label]!.count += 1
+    //         sentimentsDictionary[sentiment.label]!.sentimentScore += sentiment.score
+    //     }
         
-        return [
-            createSentiment(label: .anger),
-            createSentiment(label: .disgust),
-            createSentiment(label: .fear),
-            createSentiment(label: .joy),
-            createSentiment(label: .neutral),
-            createSentiment(label: .sadness),
-            createSentiment(label: .suprise)
-        ]
+    //     return [
+    //         createSentiment(label: .anger),
+    //         createSentiment(label: .disgust),
+    //         createSentiment(label: .fear),
+    //         createSentiment(label: .joy),
+    //         createSentiment(label: .neutral),
+    //         createSentiment(label: .sadness),
+    //         createSentiment(label: .suprise)
+    //     ]
         
         
         
-    }
+    // }
     
     private static func getLastSentimentLabel(from personEntity: PersonEntity ) -> SentimentLabel? {
         let messages = personEntity.messages.sorted {
@@ -179,5 +179,45 @@ public struct PersonHelper {
             $0.startTime < $1.startTime
         }
         return messages[0].startTime
+    }
+    
+    static func getDominantSentimentRatios(from personEntity: PersonEntity) -> [Sentiment] {
+        var utcCalendar = Calendar.current
+        utcCalendar.timeZone = TimeZone(identifier: "UTC")!
+        
+        // Mesajları günlere göre grupla
+        let groupedByDay = Dictionary(grouping: personEntity.messages) { message in
+            utcCalendar.startOfDay(for: message.startTime)
+        }
+        
+        // Her günün baskın duygusunu bul
+        var dominantCounts: [SentimentLabel: Int] = [
+            .anger: 0,
+            .disgust: 0,
+            .fear: 0,
+            .joy: 0,
+            .sadness: 0,
+            .neutral: 0,
+            .suprise: 0
+        ]
+        
+        for (_, messages) in groupedByDay {
+            let dominant = findMostSentiment(messages)
+            dominantCounts[dominant.label, default: 0] += 1
+        }
+        
+        let totalDays = groupedByDay.count
+        guard totalDays > 0 else {
+            // Hiç gün yoksa hepsi sıfır
+            return dominantCounts.map { Sentiment(label: $0.key, score: 0) }
+        }
+        
+        // Oranları hesapla
+        return dominantCounts.map { (label, count) in
+            Sentiment(label: label, score: Double(count) / Double(totalDays))
+        }
+        .sorted {
+            $0.score > $1.score
+        }
     }
 }

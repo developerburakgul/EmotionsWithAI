@@ -171,7 +171,7 @@ struct UserInfoEntryView: View {
     }
     
     private var imageSection: some View {
-        Image(OnboardingItem.mockData.last?.imageName ?? "onboarding3") // Son onboarding görseli veya varsayılan
+        Image(OnboardingItem.Onboarding9.imageName) // Son onboarding görseli veya varsayılan
             .resizable()
             .scaledToFit()
             .frame(maxWidth: .infinity, maxHeight: 300)

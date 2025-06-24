@@ -57,46 +57,40 @@ struct AnalysisHelper {
     }
     
     private static func getSentiments(_ messages: [ClientMessageModel]) -> [Sentiment] {
-        struct SentimentCount {
-            var sentimentScore: Double = 0.0
-            var count: Int = 0
+        var utcCalendar = Calendar.current
+        utcCalendar.timeZone = TimeZone(identifier: "UTC")!
+        
+        // Mesajları günlere göre grupla
+        let groupedByDay = Dictionary(grouping: messages) { message in
+            utcCalendar.startOfDay(for: message.startTime)
         }
         
-        func createSentiment(label: SentimentLabel) -> Sentiment {
-            let sentimentCount = sentimentsDictionary[label]!
-            guard sentimentCount.count > 0 else {
-                return Sentiment(label: label, score: 0)
-            }
-            return Sentiment(
-                label: label,
-                score: sentimentCount.sentimentScore / Double(sentimentCount.count)
-            )
-        }
-        
-        var sentimentsDictionary: [SentimentLabel: SentimentCount] = [
-            .anger: SentimentCount(),
-            .disgust: SentimentCount(),
-            .fear: SentimentCount(),
-            .joy: SentimentCount(),
-            .sadness: SentimentCount(),
-            .neutral: SentimentCount(),
-            .suprise: SentimentCount()
+        // Her günün baskın duygusunu bul
+        var dominantCounts: [SentimentLabel: Int] = [
+            .anger: 0,
+            .disgust: 0,
+            .fear: 0,
+            .joy: 0,
+            .sadness: 0,
+            .neutral: 0,
+            .suprise: 0
         ]
-        for message in messages {
-            let sentiment = message.convertToPersonMessage().emotion.getMainSentiment()
-            sentimentsDictionary[sentiment.label]!.count += 1
-            sentimentsDictionary[sentiment.label]!.sentimentScore += sentiment.score
+        
+        for (_, dayMessages) in groupedByDay {
+            let personMessages = dayMessages.map { $0.convertToPersonMessage() }
+            let dominant = PersonHelper.findMostSentiment(personMessages)
+            dominantCounts[dominant.label, default: 0] += 1
         }
         
-        return [
-            createSentiment(label: .anger),
-            createSentiment(label: .disgust),
-            createSentiment(label: .fear),
-            createSentiment(label: .joy),
-            createSentiment(label: .neutral),
-            createSentiment(label: .sadness),
-            createSentiment(label: .suprise)
-        ]
+        let totalDays = groupedByDay.count
+        guard totalDays > 0 else {
+            return dominantCounts.map { Sentiment(label: $0.key, score: 0) }
+        }
+        
+        // Oranları hesapla
+        return dominantCounts.map { (label, count) in
+            Sentiment(label: label, score: Double(count) / Double(totalDays))
+        }
     }
     
     static func getAnalysisResult(userName: String, data: WhatsappAnalysisResponseModel) -> AnalysisResultModel? {

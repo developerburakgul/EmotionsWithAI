@@ -30,6 +30,9 @@
         }
       }
     },
+    "Access cloud storage" : {
+
+    },
     "Active" : {
 
     },
@@ -97,6 +100,9 @@
     "Choose Your Plan" : {
 
     },
+    "Cloud Storage" : {
+
+    },
     "Confirm Upgrade" : {
 
     },
@@ -129,6 +135,9 @@
           }
         }
       }
+    },
+    "Data (Premium Only)" : {
+
     },
     "Data Not Found" : {
 
@@ -219,6 +228,9 @@
 
     },
     "Go Premium" : {
+
+    },
+    "Go to premium upgrade" : {
 
     },
     "Home" : {
@@ -333,6 +345,7 @@
 
     },
     "Notifications" : {
+      "extractionState" : "stale",
       "localizations" : {
         "tr" : {
           "stringUnit" : {
@@ -341,9 +354,6 @@
           }
         }
       }
-    },
-    "Notifications toggle" : {
-
     },
     "OK" : {
 
@@ -376,10 +386,16 @@
     "Premium Status" : {
 
     },
+    "Premium Status: %@" : {
+
+    },
     "Processing..." : {
 
     },
     "Remaining Requests" : {
+
+    },
+    "Remaining Requests: %lld" : {
 
     },
     "Restore Purchases" : {
@@ -414,9 +430,6 @@
           }
         }
       }
-    },
-    "Sentiment Label" : {
-
     },
     "Sentiments Breakdown" : {
 
@@ -487,16 +500,25 @@
     "Total Requests" : {
 
     },
+    "Total Requests: %lld" : {
+
+    },
     "Unlock Premium" : {
 
     },
-    "Usage Requests" : {
+    "Used Requests" : {
+
+    },
+    "Used Requests: %lld" : {
 
     },
     "User Information" : {
 
     },
     "Username" : {
+
+    },
+    "Username: %@" : {
 
     },
     "We couldn’t find enough expressive messages with %@. Try selecting another conversation or wait for more messages." : {

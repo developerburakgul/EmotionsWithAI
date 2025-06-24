@@ -18,7 +18,7 @@ struct OneTimeAnalysisResultView: View {
     
     // Image name for the dominant sentiment
     private var emotionImageName: String {
-        dominantSentiment?.label.getImageNameRemoveBacgkround() ?? "squareImage"
+        dominantSentiment?.label.getImageNameRemoveBacgkround() ?? "Joy"
     }
     
     // Debug: Print sentiments to check for duplicates

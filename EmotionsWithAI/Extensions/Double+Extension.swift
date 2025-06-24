@@ -14,6 +14,13 @@ extension Double {
     }
     
     func getPercentageString() -> String {
-        return String(format: "%.1f", convertToPercentage()) + "%"
+        let value = convertToPercentage()
+        if value.truncatingRemainder(dividingBy: 1) == 0 {
+            // Tam sayıysa ondalık gösterme
+            return String(format: "%.0f%%", value)
+        } else {
+            // Ondalık varsa bir basamak göster
+            return String(format: "%.1f%%", value)
+        }
     }
 }

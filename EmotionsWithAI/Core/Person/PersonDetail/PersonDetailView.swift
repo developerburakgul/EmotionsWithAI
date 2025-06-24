@@ -97,9 +97,12 @@ struct PersonDetailView: View {
     }
     
     private var chart: some View {
-        Chart {
-            ForEach(viewModel.personDetail!.sentiments, id: \.label) { sentiment in
-                sectorMark(for: sentiment)
+        let sentiments = viewModel.personDetail!.sentiments
+        let mainSentiment = sentiments.max(by: { $0.score < $1.score })?.label
+
+        return Chart {
+            ForEach(sentiments, id: \.label) { sentiment in
+                sectorMark(for: sentiment, highlight: sentiment.label == mainSentiment)
             }
         }
         .chartBackground { proxy in
@@ -120,15 +123,26 @@ struct PersonDetailView: View {
         .chartLegend(.hidden)
     }
     
-    private func sectorMark(for sentiment: Sentiment) -> some ChartContent {
+    private func color(for label: SentimentLabel) -> Color {
+        switch label {
+        case .anger: return .red
+        case .disgust: return .green
+        case .fear: return .purple
+        case .joy: return .yellow
+        case .sadness: return .blue
+        case .neutral: return .gray
+        case .suprise: return .orange
+        }
+    }
+    
+    private func sectorMark(for sentiment: Sentiment, highlight: Bool) -> some ChartContent {
         SectorMark(
             angle: .value("Sentiment", sentiment.score),
             innerRadius: .ratio(0.75),
             angularInset: 2
         )
-        .foregroundStyle(by: .value("Sentiment Label", sentiment.label.getStringValue))
+        .foregroundStyle(sentiment.label.color)
         .cornerRadius(8)
-        .opacity(selectedSector == nil ? 1.0 : (selectedSector == sentiment.label.getStringValue ? 1.0 : 0.5))
     }
     
     private func findSelectedSector(value: Double) -> String? {

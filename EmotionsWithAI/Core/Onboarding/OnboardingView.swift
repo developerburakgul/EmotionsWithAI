@@ -101,9 +101,9 @@ import UIKit // Haptic feedback için
 
 struct OnboardingView: View {
     @EnvironmentObject var container: DependencyContainer
-    var onboardingItems: [OnboardingItem] = OnboardingItem.mockData
+    var onboardingItems: [OnboardingItem] = OnboardingItem.data
     @State private var showUserInfoEntryView: Bool = false
-    @State private var currentOnboardingItem = OnboardingItem.mockData.first!
+    @State private var currentOnboardingItem = OnboardingItem.data.first!
     
     var body: some View {
         NavigationStack {
@@ -239,6 +239,7 @@ struct OnboardingView: View {
         }
     }
 }
+
 
 #Preview {
     OnboardingView()
