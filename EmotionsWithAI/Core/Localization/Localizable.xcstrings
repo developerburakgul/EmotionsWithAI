@@ -1,0 +1,532 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "%@/%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@/%2$@"
+          }
+        }
+      }
+    },
+    "%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        }
+      }
+    },
+    "Access cloud storage" : {
+
+    },
+    "Active" : {
+
+    },
+    "Analysis" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Analysis"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Analiz"
+          }
+        }
+      }
+    },
+    "Analysis Complete" : {
+
+    },
+    "Analysis Count" : {
+
+    },
+    "Analysis Dates" : {
+
+    },
+    "Anger" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kızgın"
+          }
+        }
+      }
+    },
+    "App Settings" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uygulama Ayarları"
+          }
+        }
+      }
+    },
+    "Back" : {
+
+    },
+    "Back to Onboarding" : {
+
+    },
+    "Before we begin, please enter your name." : {
+
+    },
+    "By upgrading, you agree to our [Terms of Service](https://example.com/terms) and [Privacy Policy](https://example.com/privacy)." : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Choose Your Plan" : {
+
+    },
+    "Cloud Storage" : {
+
+    },
+    "Confirm Upgrade" : {
+
+    },
+    "Continue" : {
+
+    },
+    "Continue to main app" : {
+
+    },
+    "Conversation Start Date " : {
+
+    },
+    "Dark Mode" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Karanlık Mod"
+          }
+        }
+      }
+    },
+    "Data" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veri"
+          }
+        }
+      }
+    },
+    "Data (Premium Only)" : {
+
+    },
+    "Data Not Found" : {
+
+    },
+    "Detail" : {
+
+    },
+    "Detail for %@" : {
+
+    },
+    "Disgust" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İğrenme"
+          }
+        }
+      }
+    },
+    "Dominant Emotion" : {
+
+    },
+    "Done" : {
+
+    },
+    "Emotions" : {
+
+    },
+    "Enter Name ..." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İsim Giriniz …"
+          }
+        }
+      }
+    },
+    "Enter your text here..." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Metni Buraya Giriniz…"
+          }
+        }
+      }
+    },
+    "Error" : {
+
+    },
+    "Export" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dışa Aktar"
+          }
+        }
+      }
+    },
+    "Export user data" : {
+
+    },
+    "Failed to load data" : {
+
+    },
+    "Fear" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Korku"
+          }
+        }
+      }
+    },
+    "Feeling %@" : {
+
+    },
+    "Get Started" : {
+
+    },
+    "Get the full EmotionsWithAI experience" : {
+
+    },
+    "Go Premium" : {
+
+    },
+    "Go to premium upgrade" : {
+
+    },
+    "Home" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ana Sayfa"
+          }
+        }
+      }
+    },
+    "Import" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İçe Aktar"
+          }
+        }
+      }
+    },
+    "Import user data" : {
+
+    },
+    "Joy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eğlence"
+          }
+        }
+      }
+    },
+    "Language" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dil"
+          }
+        }
+      }
+    },
+    "Language: %@" : {
+
+    },
+    "Last Feeling For You" : {
+
+    },
+    "Let's Get Started!" : {
+
+    },
+    "Loading..." : {
+
+    },
+    "Message Count" : {
+
+    },
+    "Message Count " : {
+
+    },
+    "Most Emotion is %@ for %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Most Emotion is %1$@ for %2$@"
+          }
+        }
+      }
+    },
+    "Neutral" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Normal"
+          }
+        }
+      }
+    },
+    "Next" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İleri"
+          }
+        }
+      }
+    },
+    "Next Page" : {
+
+    },
+    "No emotion data available" : {
+
+    },
+    "No Emotional Messages Detected" : {
+
+    },
+    "No sentiments detected" : {
+
+    },
+    "Notifications" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bildirimler"
+          }
+        }
+      }
+    },
+    "OK" : {
+
+    },
+    "Person" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Person"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kişiler"
+          }
+        }
+      }
+    },
+    "Person Detail" : {
+
+    },
+    "Please enter a valid name." : {
+
+    },
+    "Premium" : {
+
+    },
+    "Premium Status" : {
+
+    },
+    "Premium Status: %@" : {
+
+    },
+    "Processing..." : {
+
+    },
+    "Remaining Requests" : {
+
+    },
+    "Remaining Requests: %lld" : {
+
+    },
+    "Restore Purchases" : {
+
+    },
+    "Retry" : {
+
+    },
+    "Sadness" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Üzgün"
+          }
+        }
+      }
+    },
+    "Save" : {
+
+    },
+    "Sentiment" : {
+
+    },
+    "Sentiment label" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Duygu Analizi"
+          }
+        }
+      }
+    },
+    "Sentiments Breakdown" : {
+
+    },
+    "Settings" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayarlar"
+          }
+        }
+      }
+    },
+    "Show in Calendar" : {
+
+    },
+    "Since %@" : {
+
+    },
+    "Skip" : {
+
+    },
+    "Skip Onboarding" : {
+
+    },
+    "Start Analyze" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Analiz Başlat"
+          }
+        }
+      }
+    },
+    "Suprise" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Süpriz"
+          }
+        }
+      }
+    },
+    "The Most Emotion On This Month %@" : {
+
+    },
+    "The Most Emotion On This Month is %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu Ayın En çok Duygusu %@"
+          }
+        }
+      }
+    },
+    "Total Requests" : {
+
+    },
+    "Total Requests: %lld" : {
+
+    },
+    "Unlock Premium" : {
+
+    },
+    "Used Requests" : {
+
+    },
+    "Used Requests: %lld" : {
+
+    },
+    "User Information" : {
+
+    },
+    "Username" : {
+
+    },
+    "Username: %@" : {
+
+    },
+    "We couldn’t find enough expressive messages with %@. Try selecting another conversation or wait for more messages." : {
+
+    },
+    "Your name" : {
+
+    }
+  },
+  "version" : "1.0"
+}

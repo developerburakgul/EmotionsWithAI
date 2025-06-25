@@ -1,0 +1,42 @@
+{
+  "originHash" : "fdfb34e99a7e0b1ccb298880af2b05bf4895121254b1206eb0f943086e423397",
+  "pins" : [
+    {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios.git",
+      "state" : {
+        "revision" : "a004050748dc197c56256a14dca49a035d74726c",
+        "version" : "4.5.2"
+      }
+    },
+    {
+      "identity" : "mbwebservice",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/developerburakgul/MBWebService",
+      "state" : {
+        "branch" : "development",
+        "revision" : "5d3f51d5d9bb2929c1f3732d9d27a057a60efd42"
+      }
+    },
+    {
+      "identity" : "obcalendar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/oBilet/OBCalendar",
+      "state" : {
+        "revision" : "851654293da2675a922ce3e2f4fd316e53fcc6d2",
+        "version" : "0.2.2"
+      }
+    },
+    {
+      "identity" : "zipfoundation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/weichsel/ZIPFoundation.git",
+      "state" : {
+        "revision" : "02b6abe5f6eef7e3cbd5f247c5cc24e246efcfe0",
+        "version" : "0.9.19"
+      }
+    }
+  ],
+  "version" : 3
+}
