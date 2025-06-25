@@ -15,7 +15,7 @@ class UserEntity {
     var name: String
     var requestCount: Int
     var isPremium: Bool = false
-    var totalRequestCount: Int = 10
+    var totalRequestCount: Int = 2
 
     @Relationship
     var selfUserEntity: SelfUserEntity?
@@ -26,7 +26,7 @@ class UserEntity {
         requestCount: Int = 0,
         selfUserEntity: SelfUserEntity? = nil,
         isPremium: Bool = false,
-        totalRequestCount: Int = 10
+        totalRequestCount: Int = 2
     ) {
         self.id = id
         self.name = name

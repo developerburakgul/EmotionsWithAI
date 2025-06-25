@@ -65,6 +65,11 @@ struct SettingsView: View {
                         )
                     }
             }
+            .onAppear {
+                viewModel.fetchUserData()
+            }
+            
+            
         }
     }
 

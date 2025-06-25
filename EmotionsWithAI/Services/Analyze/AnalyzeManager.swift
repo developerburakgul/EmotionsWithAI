@@ -36,10 +36,11 @@ final class AnalyzeManager {
         decoder.dateDecodingStrategy = .iso8601
         let response = try decoder.decode(ApiResponseModel<WhatsappAnalysisResponseModel>.self, from: data)
         if response.success {
-            try userManager.increaseRequestCount()
+            
             guard let data = response.data else {
                 throw GenericError.detail("Couldn't find data on \(#function)")
             }
+            try userManager.increaseRequestCount()
             return data
         }else {
             throw GenericError.detail("Response failed \(#function)")

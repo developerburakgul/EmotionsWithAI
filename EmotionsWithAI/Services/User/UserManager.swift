@@ -38,15 +38,25 @@ final class UserManager {
         //MARK: - todo
     }
     
+    func canAnalyzeMessage() -> Bool {
+        do {
+            let user = try localUserStorageService.fetchUser()
+            guard let user else { throw GenericError.detail("Couldn't fetch user") }
+            if user.isPremium || user.requestCount < user.totalRequestCount {
+                return true
+            }else {
+                return false
+            }
+        } catch  {
+            print("Error \(error)")
+            return false
+        }
+    }
+    
     func increaseRequestCount() throws {
-        
             let user = try localUserStorageService.fetchUser()
             guard let user else { return  }
-            
             user.requestCount += 1
-            
-        
-        
     }
     
     func upgradeToPremium() async throws {
@@ -67,7 +77,7 @@ final class UserManager {
                 name: name,
                 requestCount: 0,
                 selfUserEntity: nil,
-                totalRequestCount: 10
+                totalRequestCount: 3
             )
             let selfUser = SelfUserEntity(
                 id: sharedID,

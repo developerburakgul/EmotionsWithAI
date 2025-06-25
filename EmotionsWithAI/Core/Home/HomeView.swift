@@ -21,6 +21,7 @@ struct HomeView: View {
     @StateObject var viewModel: HomeViewModel
     @StateObject var coordinator: FileAnalysisCoordinator
     @State var showFileImporter: Bool = false
+    @State var showErrorAlert: Bool = false // New state for alert
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottomTrailing) {
@@ -60,6 +61,18 @@ struct HomeView: View {
                 }
                 .toolbarVisibility(.hidden, for: .tabBar)   
             }
+            .sheet(isPresented: $coordinator.shouldShowPremium) {
+                PremiumUpgradeView(
+                    viewModel: .init(container: container)
+                )
+            }
+            .alert("Error", isPresented: $showErrorAlert) {
+                Button("OK") {
+                    coordinator.errorMessage = nil
+                }
+            } message: {
+                Text(coordinator.errorMessage ?? "An unknown error occurred.")
+            }
         }
         .task {
 
@@ -70,6 +83,11 @@ struct HomeView: View {
                 Task {
                     await viewModel.loadData()
                 }
+            }
+        }
+        .onChange(of: coordinator.errorMessage) { oldValue, newValue in
+            if newValue != nil {
+                showErrorAlert = true
             }
         }
         
