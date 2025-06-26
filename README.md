@@ -24,9 +24,6 @@ You can watch a demo of the application on YouTube:
 
 ## Screenshots
 
-<div>
-    <h2 align=center> Screen Shots </h2>
-</div>
 
 <div align=center>
       <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/Onboarding-1.png">
