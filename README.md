@@ -24,16 +24,40 @@ You can watch a demo of the application on YouTube:
 
 ## Screenshots
 
-Below you can add screenshots of the app. Place your images in the `screenshots/` folder and reference them here.  
-Arranged in a 2x4 grid for better visualization:
+<div>
+    <h2 align=center> Screen Shots </h2>
+</div>
 
-|             Home Screen             |             Calendar View             |              Chat Import              |           Emotion Analysis            |
-| :---------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: |
-|    ![Home](screenshots/home.png)    | ![Calendar](screenshots/calendar.png) |   ![Import](screenshots/import.png)   | ![Analysis](screenshots/analysis.png) |
-|            User Profile             |              Statistics               |               Settings                |           Premium Features            |
-| ![Profile](screenshots/profile.png) |    ![Stats](screenshots/stats.png)    | ![Settings](screenshots/settings.png) |  ![Premium](screenshots/premium.png)  |
+<div align=center>
+      <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/Onboarding-1.png">
+   <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/Onboarding-2.png">
+   <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/Onboarding-Last.png">
+   <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/SplashScreen.png">
+  <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/HomeScreen.png">
+   <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/HomeScreenEmpty.png">
+   <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/AnalysisTab.png">
+   <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/PersonScreenEmpty.png">
+   <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/PersonScreenNonEmpty.png">
+   <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/SettingsScreen.png">
+   <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/ChatImport.png">
+      <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/WhatsappLoading.png">
+   <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/WhatsappEmotionResult.png">
+   <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/WhatsapEmotionAnalysisNonResult.png">
 
-_Add or replace images as needed for your project._
+   <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/OneTimeAnalysisLoader.png">
+   <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/OneTimeAnalysisResult.png">
+   <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/PersonDetailScreen.png">
+   <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/CalendarScreen.png">
+
+   <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/PremiumSheet.png">
+   <img height=150 src="https://github.com/developerburakgul/EmotionsWithAI/blob/main/SS/AnalysisTab.png">
+   
+</div>
+
+<br>
+<div>
+    <h2 align=center> Screen Record </h2>
+</div>
 
 ## Getting Started
 
@@ -52,6 +76,4 @@ _Add or replace images as needed for your project._
 - [MBWebService](https://github.com/developerburakgul/MBWebService): For API requests and analysis operations.
 - [OBCalendar](https://github.com/oBilet/OBCalendar): For calendar-based emotion visualization.
 
-## Contribution & License
 
-Feel free to open pull requests for contributions. See the LICENSE file
