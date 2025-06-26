@@ -27,7 +27,7 @@ struct AppView: View {
         }
         .onAppear {
             LoaderManager.shared.show(type: .analyzing)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 LoaderManager.shared.hide()
             }
         }

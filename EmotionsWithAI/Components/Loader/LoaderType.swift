@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum LoaderType: String, Identifiable, CaseIterable, Equatable {
     case analyzing
@@ -28,4 +29,11 @@ enum LoaderType: String, Identifiable, CaseIterable, Equatable {
         case .oneTimeAnalyzing: return "Analyzing Message..."
         }
     }
+}
+
+#Preview() {
+    let container = DevPreview.shared.container
+    
+    AppView()
+        .previewEnvironmentObject()
 }

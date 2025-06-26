@@ -204,9 +204,12 @@ struct OneTimeAnalysisResultView: View {
 #Preview {
     let emotion = Emotion(sentiments: [
         Sentiment(label: .anger, score: 0.5),
-        Sentiment(label: .anger, score: 0.3), // Duplicate anger
         Sentiment(label: .joy, score: 0.15),
-        Sentiment(label: .neutral, score: 0.05)
+        Sentiment(label:  SentimentLabel.disgust, score: 0.05),
+        Sentiment(label: SentimentLabel.fear, score: 0.20),
+        Sentiment(label: SentimentLabel.sadness, score: 0.60),
+        Sentiment(label: SentimentLabel.neutral, score: 0.10),
+        
     ])
     return OneTimeAnalysisResultView(emotion: emotion)
 }

@@ -36,6 +36,7 @@ final class HomeViewModel: ObservableObject {
         do {
             self.selfUser = try await selfEmotionManager.fetchSelfUser()
             self.chartDatas = selfUser?.chartDatas ?? []
+            self.chartDatas = selfUser?.chartDatas ?? []
             self.countOfMessages = selfUser?.countOfMessages ?? 0
             self.analysisDates = selfUser?.analysisDates ?? []
         } catch  {

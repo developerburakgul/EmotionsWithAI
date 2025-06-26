@@ -78,7 +78,7 @@ struct EmptyAnalysisResultView: View {
 
 #Preview {
     EmptyAnalysisResultView(
-        name: "Burak",
+        name: "Batuhan",
         sinceDate: Date(), // örnek olarak şimdi
         dismissAction: { /* dismiss kodu */ }
     )

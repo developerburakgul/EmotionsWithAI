@@ -17,6 +17,11 @@ EmotionsWithAI is an iOS application that analyzes WhatsApp chats and visualizes
 - **Dependency Injection (Container)** for managing dependencies
 - **SPM (Swift Package Manager)** for all dependencies ([MBWebService](https://github.com/developerburakgul/MBWebService), [OBCalendar](https://github.com/oBilet/OBCalendar))
 
+## Demo
+
+You can watch a demo of the application on YouTube:  
+[https://youtu.be/RQN4XVUzvTE](https://youtu.be/RQN4XVUzvTE)
+
 ## Screenshots
 
 Below you can add screenshots of the app. Place your images in the `screenshots/` folder and reference them here.  

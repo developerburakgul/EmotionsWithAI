@@ -16,16 +16,16 @@ struct MockLocalPersonStorageService: LocalPersonStorageServiceProtocol {
         
         return [
             PersonEntity(
-                name: "Person 1",
-                messages: PersonMessage.mock(startingFrom: formatter.date(from: "2025-01-01 08:00") ?? .now, count: 10),
+                name: "Burak",
+                messages: PersonMessage.mock(startingFrom: formatter.date(from: "2025-01-01 08:00") ?? .now, count: 10000),
                 analysisDates: Date.mock(count: 3),
                 lastSentimentLabel: SentimentLabel.getRandom(),
                 firstDateForConversation: Date.random(),
                 lastDateForConversation: Date.random()
             ),
             PersonEntity(
-                name: "Person 2",
-                messages: PersonMessage.mock(startingFrom: formatter.date(from: "2025-01-10 08:00") ?? .now, count: 10),
+                name: "Batuhan",
+                messages: PersonMessage.mock(startingFrom: formatter.date(from: "2025-01-10 08:00") ?? .now, count: 2000),
                 analysisDates: Date.mock(count: 3),
                 lastSentimentLabel: SentimentLabel.getRandom(),
                 firstDateForConversation: Date.random(),
@@ -33,8 +33,8 @@ struct MockLocalPersonStorageService: LocalPersonStorageServiceProtocol {
             ),
             
             PersonEntity(
-                name: "Person 3",
-                messages: PersonMessage.mock(startingFrom: formatter.date(from: "2025-01-15 08:00") ?? .now, count: 10),
+                name: "Meryem",
+                messages: PersonMessage.mock(startingFrom: formatter.date(from: "2025-01-15 08:00") ?? .now, count: 500),
                 analysisDates: Date.mock(count: 3),
                 lastSentimentLabel: SentimentLabel.getRandom(),
                 firstDateForConversation: Date.random(),

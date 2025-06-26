@@ -197,7 +197,7 @@ struct HomeView: View {
 //        .previewEnvironmentObject()
 //}
 
-#Preview {
+#Preview("Empty Data") {
     let container = DevPreview.shared.container
     return TabBarView()
         .previewEnvironmentObject()
