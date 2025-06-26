@@ -37,9 +37,11 @@ _Add or replace images as needed for your project._
 
 ## Getting Started
 
+> **Important:** Before running this project, you need to start the [EmotionWithAIBackend](https://github.com/developerburakgul/EmotionWithAIBackend) backend project on your local machine. The app's analysis and API features will not work properly unless the backend service is running.
+
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/EmotionsWithAI.git
+   git clone https://github.com/developerburakgul/EmotionsWithAI.git
    ```
 2. Open the project in Xcode.
 3. Ensure all SPM dependencies are resolved automatically.
